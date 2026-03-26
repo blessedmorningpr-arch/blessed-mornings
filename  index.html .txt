@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blessed Mornings</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#f8f5f2;
+  color:#222;
+}
+header{
+  background:#000;
+  height:80vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:white;
+}
+.btn{
+  padding:12px 20px;
+  background:white;
+  color:black;
+  text-decoration:none;
+  margin:5px;
+  display:inline-block;
+}
+section{
+  padding:50px 20px;
+  max-width:900px;
+  margin:auto;
+}
+.menu{
+  background:white;
+  padding:20px;
+  white-space:pre-line;
+}
+footer{
+  background:black;
+  color:white;
+  text-align:center;
+  padding:20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div>
+    <h1>Blessed Mornings</h1>
+    <p>Brunch & Coffee en Fajardo</p>
+    <a class="btn" href="#menu">Ver Menú</a>
+    <a class="btn" href="tel:7873183877">Llamar</a>
+  </div>
+</header>
+
+<section>
+<h2>Sobre Nosotros</h2>
+<p>
+En Blessed Mornings creemos que cada mañana merece ser especial.  
+Creamos un espacio donde el buen café, los sabores auténticos y un ambiente acogedor se combinan para ofrecer una experiencia única en Fajardo.  
+
+Cada plato es preparado con dedicación, utilizando ingredientes frescos y cuidando cada detalle, porque no solo servimos comida… creamos momentos.  
+</p>
+</section>
+
+<section id="menu">
+<h2>Menú</h2>
+
+<div class="menu">
+Génesis: Croissant, Queso Americano, Ensalada, Jamón pavo
+Éxodo: Ciabatta, Queso Suizo, Pavo, Salami, Ensalada
+Salmos: Mallorca, Queso Cheddar, Jamón Regular, Jalea Raspberry
+
+PANCAKES
+Regular (3)
+Relleno de nutella
+Red Velvet Choco chips
+Chocolate Chips
+
+AÑADE PROTEINA
+Jamon Pavo
+Salchicha italiana
+Bacon
+
+AÑADE FRUTAS 3.95
+(fresa, kiwi, guineo, blueberry's)
+
+TOPPINGS +1C/U
+Nutella
+Almendra
+Whip Cream
+Nueces
+Queso Crema
+Chocolate
+Caramelo
+
+PLATOS
+Romanos: Omelette o Revuelto con vegetales + proteína + acompañante
+Filipenses: Taco Pancakes con frutas
+Gálatas: Avocado Toast completo
+Hechos: French Toast Sandwich
+Apocalipsis: Pancakes o French Toast con todo
+</div>
+
+</section>
+
+<section>
+<h2>Visítanos</h2>
+<p>
+📍 Ave. Valero, PR-194, Fajardo  
+📞 (787) 318-3877  
+📷 @blessedmorningspr  
+🕒 Martes a Sábado 7:30am - 12:00pm  
+❌ Domingo y Lunes cerrado
+</p>
+</section>
+
+<footer>
+<p>Blessed Mornings</p>
+</footer>
+
+</body>
+</html>
