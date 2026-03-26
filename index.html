@@ -3,19 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blessed Mornings | Brunch & Coffee en Fajardo</title>
+<title>Blessed Mornings</title>
 
 <style>
 body {
   margin: 0;
-  font-family: 'Arial', sans-serif;
+  font-family: Arial, sans-serif;
   background: #f8f5f0;
-  color: #2c2c2c;
 }
 
-header {
+.hero {
+  height: 100vh;
   background: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836') center/cover;
-  height: 60vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,74 +22,58 @@ header {
   color: white;
 }
 
-header h1 {
+.hero-content {
+  background: rgba(0,0,0,0.4);
+  padding: 30px;
+  border-radius: 20px;
+}
+
+h1 {
   font-size: 40px;
-  margin: 0;
+  margin-bottom: 10px;
 }
 
-header p {
-  font-size: 18px;
+.buttons a {
+  display: block;
+  margin: 10px auto;
+  padding: 15px;
+  border-radius: 30px;
+  text-decoration: none;
+  width: 250px;
+  font-weight: bold;
 }
 
-section {
-  padding: 40px 20px;
-  max-width: 900px;
-  margin: auto;
-}
-
-h2 {
-  border-bottom: 2px solid #c9a86a;
-  padding-bottom: 10px;
-}
-
-.menu-item {
-  margin: 15px 0;
-}
-
-footer {
-  background: #000;
+.menu-btn {
+  background: #c9a86a;
   color: white;
-  text-align: center;
-  padding: 20px;
+}
+
+.dark-btn {
+  background: black;
+  color: white;
+}
+
+.light-btn {
+  background: white;
+  color: black;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-<div>
-<h1>Blessed Mornings</h1>
-<p>Brunch & Coffee · Fajardo, Puerto Rico</p>
+<div class="hero">
+  <div class="hero-content">
+    <h1>Blessed Mornings</h1>
+    <p>Brunch & Coffee · Fajardo, Puerto Rico</p>
+
+    <div class="buttons">
+      <a href="#" class="menu-btn">Ver menú</a>
+      <a href="#" class="dark-btn">Ver Bebidas ☕</a>
+      <a href="tel:+1787XXXXXXX" class="light-btn">Llamar ahora</a>
+    </div>
+  </div>
 </div>
-</header>
-
-<section>
-
-<p style="text-align:center;">
-Sabores que hacen que cada mañana se sienta especial.
-</p>
-
-<h2>Sandwiches</h2>
-<div class="menu-item">Génesis – Croissant, queso americano, jamón pavo</div>
-<div class="menu-item">Éxodo – Ciabatta, queso suizo, pavo, salami</div>
-<div class="menu-item">Salmos – Mallorca, cheddar, jamón, raspberry</div>
-
-<h2>Pancakes</h2>
-<div class="menu-item">Regular (3)</div>
-<div class="menu-item">Nutella</div>
-<div class="menu-item">Red Velvet</div>
-<div class="menu-item">Chocolate Chips</div>
-
-<h2>Bebidas</h2>
-<div class="menu-item">Espresso</div>
-<div class="menu-item">Latte</div>
-
-</section>
-
-<footer>
-© Blessed Mornings – Fajardo, Puerto Rico
-</footer>
 
 </body>
 </html>
