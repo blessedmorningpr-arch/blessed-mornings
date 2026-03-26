@@ -3,35 +3,55 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blessed Mornings</title>
+<title>Blessed Mornings | Brunch & Coffee en Fajardo</title>
 
 <style>
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f5f5f5;
+  font-family: 'Arial', sans-serif;
+  background: #f8f5f0;
+  color: #2c2c2c;
 }
 
 header {
-  background: black;
-  color: white;
+  background: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836') center/cover;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  padding: 30px;
+  color: white;
+}
+
+header h1 {
+  font-size: 40px;
+  margin: 0;
+}
+
+header p {
+  font-size: 18px;
 }
 
 section {
-  padding: 25px;
-  max-width: 800px;
+  padding: 40px 20px;
+  max-width: 900px;
   margin: auto;
 }
 
 h2 {
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid #c9a86a;
   padding-bottom: 10px;
 }
 
-.item {
-  margin: 10px 0;
+.menu-item {
+  margin: 15px 0;
+}
+
+footer {
+  background: #000;
+  color: white;
+  text-align: center;
+  padding: 20px;
 }
 </style>
 </head>
@@ -39,8 +59,10 @@ h2 {
 <body>
 
 <header>
+<div>
 <h1>Blessed Mornings</h1>
 <p>Brunch & Coffee · Fajardo, Puerto Rico</p>
+</div>
 </header>
 
 <section>
@@ -50,21 +72,25 @@ Sabores que hacen que cada mañana se sienta especial.
 </p>
 
 <h2>Sandwiches</h2>
-<div class="item">Génesis – Croissant, queso americano, jamón pavo</div>
-<div class="item">Éxodo – Ciabatta, queso suizo, pavo, salami</div>
-<div class="item">Salmos – Mallorca, cheddar, jamón, raspberry</div>
+<div class="menu-item">Génesis – Croissant, queso americano, jamón pavo</div>
+<div class="menu-item">Éxodo – Ciabatta, queso suizo, pavo, salami</div>
+<div class="menu-item">Salmos – Mallorca, cheddar, jamón, raspberry</div>
 
 <h2>Pancakes</h2>
-<div class="item">Regular (3)</div>
-<div class="item">Nutella</div>
-<div class="item">Red Velvet</div>
-<div class="item">Chocolate Chips</div>
+<div class="menu-item">Regular (3)</div>
+<div class="menu-item">Nutella</div>
+<div class="menu-item">Red Velvet</div>
+<div class="menu-item">Chocolate Chips</div>
 
 <h2>Bebidas</h2>
-<div class="item">Espresso</div>
-<div class="item">Latte</div>
+<div class="menu-item">Espresso</div>
+<div class="menu-item">Latte</div>
 
 </section>
+
+<footer>
+© Blessed Mornings – Fajardo, Puerto Rico
+</footer>
 
 </body>
 </html>
