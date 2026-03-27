@@ -6,16 +6,17 @@
 <title>Blessed Mornings</title>
 
 <style>
-body {
+body{
   margin:0;
-  font-family: Arial, sans-serif;
+  font-family: Arial;
   background:#0b0b0b;
   color:white;
 }
 
-.hero {
-  background: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836') center/cover no-repeat;
-  height: 90vh;
+/* HERO */
+.hero{
+  height:90vh;
+  background:url('hero.jpg') center/cover no-repeat;
   display:flex;
   flex-direction:column;
   justify-content:center;
@@ -24,63 +25,125 @@ body {
   padding:20px;
 }
 
-.logo {
-  width:120px;
-  margin-bottom:20px;
+.logo{
+  width:110px;
+  margin-bottom:15px;
 }
 
-h1 {
+.tag{
+  border:1px solid rgba(255,255,255,0.3);
+  padding:8px 15px;
+  border-radius:20px;
+  font-size:12px;
+  margin-bottom:15px;
+}
+
+h1{
   font-size:28px;
 }
 
-p {
+p{
   opacity:0.8;
 }
 
-.btn {
+.btn{
   display:block;
-  width:80%;
-  max-width:300px;
+  width:85%;
+  max-width:320px;
   margin:10px auto;
   padding:15px;
   border-radius:30px;
   text-decoration:none;
-  text-align:center;
   font-weight:bold;
 }
 
-.gold { background:#c79a63; color:white; }
-.dark { background:#1c1c1c; color:white; }
-.light { background:white; color:black; }
+.gold{background:#c79a63;color:white;}
+.dark{background:#1c1c1c;color:white;}
+.light{background:white;color:black;}
 
-.section {
+.section{
   padding:30px 20px;
 }
 
-.card {
+.card{
   background:#1a1a1a;
   padding:20px;
-  border-radius:15px;
+  border-radius:20px;
   margin-bottom:15px;
 }
 
-h2 { color:#c79a63; }
+h2{
+  color:#c79a63;
+}
+
+/* ESPECIALIDADES */
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+}
+
+.food{
+  position:relative;
+  border-radius:15px;
+  overflow:hidden;
+}
+
+.food img{
+  width:100%;
+  height:160px;
+  object-fit:cover;
+}
+
+.food span{
+  position:absolute;
+  bottom:10px;
+  left:10px;
+  background:rgba(0,0,0,0.6);
+  padding:5px 10px;
+  border-radius:10px;
+}
+
+/* VISITANOS */
+.visit{
+  background:#f3eee8;
+  color:black;
+  padding:25px;
+  border-radius:20px;
+}
+
+.mapbtn{
+  background:#c79a63;
+  color:white;
+  padding:15px;
+  border-radius:30px;
+  display:block;
+  text-align:center;
+  margin-top:15px;
+  text-decoration:none;
+}
 
 </style>
 </head>
 
 <body>
 
+<!-- HERO -->
 <div class="hero">
-  <img src="https://i.imgur.com/8Km9tLL.png" class="logo">
+  <img src="logo.png" class="logo">
+
+  <div class="tag">BRUNCH & COFFEE · FAJARDO, PUERTO RICO</div>
+
   <h1>Sabores que hacen que cada mañana se sienta especial</h1>
-  <p>Brunch y café en Fajardo, Puerto Rico</p>
+
+  <p>Brunch, café y platos con personalidad</p>
 
   <a href="#menu" class="btn gold">Ver menú</a>
-  <a href="#bebidas" class="btn dark">Ver bebidas</a>
+  <a href="#bebidas" class="btn dark">Ver bebidas ☕</a>
   <a href="tel:7873183877" class="btn light">Llamar ahora</a>
 </div>
 
+<!-- SOBRE -->
 <div class="section">
   <h2>Sobre nosotros</h2>
   <div class="card">
@@ -88,44 +151,89 @@ h2 { color:#c79a63; }
   </div>
 </div>
 
+<!-- MENU -->
 <div class="section" id="menu">
   <h2>Menú</h2>
 
   <div class="card">
     <b>Génesis</b> - $8.95<br>
-    Croissant, queso, jamón pavo
+    Croissant, Queso Americano, Ensalada, Jamón pavo
   </div>
 
   <div class="card">
     <b>Éxodo</b> - $10<br>
-    Ciabatta, queso suizo, pavo, salami
+    Ciabatta, Queso Suizo, Pavo, Salami
   </div>
 
   <div class="card">
     <b>Salmos</b> - $9.75<br>
-    Mallorca, cheddar, jamón, raspberry
+    Mallorca, Queso Cheddar, Jamón, Raspberry
   </div>
 </div>
 
+<!-- BEBIDAS -->
 <div class="section" id="bebidas">
   <h2>Bebidas</h2>
 
   <div class="card">Espresso - $2</div>
   <div class="card">Latte - $2.75 / $3 / $3.50</div>
   <div class="card">Cappuccino - $3.50 / $3.85 / $4</div>
+  <div class="card">Mocha - $3.50 / $3.85 / $4.20</div>
 </div>
 
+<!-- ESPECIALIDADES -->
 <div class="section">
-  <h2>Visítanos</h2>
-  <div class="card">
-    Ave. Valero PR-194<br><br>
-    Martes a sábado 7:30am - 12pm<br>
-    Domingo y lunes cerrado<br><br>
-    📞 (787) 318-3877<br>
-    📍 Fajardo, PR
-  </div>
+  <h2>Especialidades</h2>
 
-  <a href="https://maps.google.com/?q=Fajardo" class="btn gold">Cómo llegar</a>
+  <div class="grid">
+
+    <div class="food">
+      <img src="avocado.jpg">
+      <span>Avocado Toast</span>
+    </div>
+
+    <div class="food">
+      <img src="hechos.jpg">
+      <span>Hechos</span>
+    </div>
+
+    <div class="food">
+      <img src="waffles.jpg">
+      <span>Waffles Red Velvet</span>
+    </div>
+
+    <div class="food">
+      <img src="apocalipsis.jpg">
+      <span>Apocalipsis</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- VISITANOS -->
+<div class="section">
+  <div class="visit">
+
+    <h2>Visítanos</h2>
+
+    Ave. Valero, PR-194, Fajardo<br><br>
+
+    Martes a sábado<br>
+    <b>7:30am – 12:00pm</b><br><br>
+
+    Domingo y lunes<br>
+    <b>CERRADO</b><br><br>
+
+    📞 (787) 318-3877<br><br>
+
+    Instagram<br>
+    <b>@blessedmorningspr</b>
+
+    <a href="https://maps.google.com/?q=Fajardo" class="mapbtn">
+      Cómo llegar
+    </a>
+
+  </div>
 </div>
 
 </body>
