@@ -6,124 +6,127 @@
 <title>Blessed Mornings</title>
 
 <style>
-body{
+body {
   margin:0;
-  font-family:Arial, sans-serif;
-  background:#f8f5f2;
-  color:#222;
+  font-family: Arial, sans-serif;
+  background:#0b0b0b;
+  color:white;
 }
-header{
-  background:#000;
-  height:80vh;
+
+.hero {
+  background: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836') center/cover no-repeat;
+  height: 90vh;
   display:flex;
-  align-items:center;
+  flex-direction:column;
   justify-content:center;
+  align-items:center;
   text-align:center;
-  color:white;
+  padding:20px;
 }
-.btn{
-  padding:12px 20px;
-  background:white;
-  color:black;
+
+.logo {
+  width:120px;
+  margin-bottom:20px;
+}
+
+h1 {
+  font-size:28px;
+}
+
+p {
+  opacity:0.8;
+}
+
+.btn {
+  display:block;
+  width:80%;
+  max-width:300px;
+  margin:10px auto;
+  padding:15px;
+  border-radius:30px;
   text-decoration:none;
-  margin:5px;
-  display:inline-block;
-}
-section{
-  padding:50px 20px;
-  max-width:900px;
-  margin:auto;
-}
-.menu{
-  background:white;
-  padding:20px;
-  white-space:pre-line;
-}
-footer{
-  background:black;
-  color:white;
   text-align:center;
-  padding:20px;
+  font-weight:bold;
 }
+
+.gold { background:#c79a63; color:white; }
+.dark { background:#1c1c1c; color:white; }
+.light { background:white; color:black; }
+
+.section {
+  padding:30px 20px;
+}
+
+.card {
+  background:#1a1a1a;
+  padding:20px;
+  border-radius:15px;
+  margin-bottom:15px;
+}
+
+h2 { color:#c79a63; }
+
 </style>
 </head>
 
 <body>
 
-<header>
-  <div>
-    <h1>Blessed Mornings</h1>
-    <p>Brunch & Coffee en Fajardo</p>
-    <a class="btn" href="#menu">Ver Menú</a>
-    <a class="btn" href="tel:7873183877">Llamar</a>
-  </div>
-</header>
+<div class="hero">
+  <img src="https://i.imgur.com/8Km9tLL.png" class="logo">
+  <h1>Sabores que hacen que cada mañana se sienta especial</h1>
+  <p>Brunch y café en Fajardo, Puerto Rico</p>
 
-<section>
-<h2>Sobre Nosotros</h2>
-<p>
-En Blessed Mornings creemos que cada mañana merece ser especial.  
-Creamos un espacio donde el buen café, los sabores auténticos y un ambiente acogedor se combinan para ofrecer una experiencia única en Fajardo.  
-
-Cada plato es preparado con dedicación, utilizando ingredientes frescos y cuidando cada detalle, porque no solo servimos comida… creamos momentos.  
-</p>
-</section>
-
-<section id="menu">
-<h2>Menú</h2>
-
-<div class="menu">
-Génesis: Croissant, Queso Americano, Ensalada, Jamón pavo
-Éxodo: Ciabatta, Queso Suizo, Pavo, Salami, Ensalada
-Salmos: Mallorca, Queso Cheddar, Jamón Regular, Jalea Raspberry
-
-PANCAKES
-Regular (3)
-Relleno de nutella
-Red Velvet Choco chips
-Chocolate Chips
-
-AÑADE PROTEINA
-Jamon Pavo
-Salchicha italiana
-Bacon
-
-AÑADE FRUTAS 3.95
-(fresa, kiwi, guineo, blueberry's)
-
-TOPPINGS +1C/U
-Nutella
-Almendra
-Whip Cream
-Nueces
-Queso Crema
-Chocolate
-Caramelo
-
-PLATOS
-Romanos: Omelette o Revuelto con vegetales + proteína + acompañante
-Filipenses: Taco Pancakes con frutas
-Gálatas: Avocado Toast completo
-Hechos: French Toast Sandwich
-Apocalipsis: Pancakes o French Toast con todo
+  <a href="#menu" class="btn gold">Ver menú</a>
+  <a href="#bebidas" class="btn dark">Ver bebidas</a>
+  <a href="tel:7873183877" class="btn light">Llamar ahora</a>
 </div>
 
-</section>
+<div class="section">
+  <h2>Sobre nosotros</h2>
+  <div class="card">
+    En Blessed Mornings cada detalle está pensado para que tu mañana se sienta especial.
+  </div>
+</div>
 
-<section>
-<h2>Visítanos</h2>
-<p>
-📍 Ave. Valero, PR-194, Fajardo  
-📞 (787) 318-3877  
-📷 @blessedmorningspr  
-🕒 Martes a Sábado 7:30am - 12:00pm  
-❌ Domingo y Lunes cerrado
-</p>
-</section>
+<div class="section" id="menu">
+  <h2>Menú</h2>
 
-<footer>
-<p>Blessed Mornings</p>
-</footer>
+  <div class="card">
+    <b>Génesis</b> - $8.95<br>
+    Croissant, queso, jamón pavo
+  </div>
+
+  <div class="card">
+    <b>Éxodo</b> - $10<br>
+    Ciabatta, queso suizo, pavo, salami
+  </div>
+
+  <div class="card">
+    <b>Salmos</b> - $9.75<br>
+    Mallorca, cheddar, jamón, raspberry
+  </div>
+</div>
+
+<div class="section" id="bebidas">
+  <h2>Bebidas</h2>
+
+  <div class="card">Espresso - $2</div>
+  <div class="card">Latte - $2.75 / $3 / $3.50</div>
+  <div class="card">Cappuccino - $3.50 / $3.85 / $4</div>
+</div>
+
+<div class="section">
+  <h2>Visítanos</h2>
+  <div class="card">
+    Ave. Valero PR-194<br><br>
+    Martes a sábado 7:30am - 12pm<br>
+    Domingo y lunes cerrado<br><br>
+    📞 (787) 318-3877<br>
+    📍 Fajardo, PR
+  </div>
+
+  <a href="https://maps.google.com/?q=Fajardo" class="btn gold">Cómo llegar</a>
+</div>
 
 </body>
 </html>
