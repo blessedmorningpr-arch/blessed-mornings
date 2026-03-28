@@ -66,16 +66,24 @@
       padding:34px 18px 42px;
     }
 
-    .logo-wrap{
-      width:124px;
-      height:124px;
-      margin:0 auto 20px;
-      border-radius:50%;
-      overflow:hidden;
-      box-shadow:var(--shadow);
-      border:2px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.03);
-      backdrop-filter:blur(4px);
+   .logo-wrap {
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 24px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+    .logo-img {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+}
     }
 
     .eyebrow{
@@ -403,9 +411,8 @@
 
   <header class="hero">
     <div class="hero-inner container">
-      <div class="logo-wrap">
-        <img src="logo.PNG?v=2"> alt="Blessed Mornings logo">
-      </div>
+     <div class="logo-wrap">
+  <img src="logo.PNG" alt="Blessed Mornings logo" class="logo-img">
 
       <div class="eyebrow">Brunch &amp; Coffee · Fajardo, Puerto Rico</div>
 
