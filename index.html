@@ -48,15 +48,15 @@
       overflow:hidden;
     }
 
-    .hero::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        linear-gradient(to bottom, rgba(0,0,0,.40), rgba(0,0,0,.78)),
-        url('hero.jpg') center/cover no-repeat;
-      transform:scale(1.02);
-    }
+    .hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.7)),
+              url('hero.jpg') center/cover no-repeat;
+  z-index: 0;
+}
+    
 
     .hero-inner{
       position:relative;
@@ -413,11 +413,11 @@
 
   <header class="hero">
     <div class="hero-inner container">
-     <div class="logo-wrap">
+    <div class="logo-wrap">
   <img src="logo.PNG" alt="Blessed Mornings logo" class="logo-img">
+</div>
 
-      <div class="eyebrow">Brunch &amp; Coffee · Fajardo, Puerto Rico</div>
-
+<div class="eyebrow">Brunch & Coffee · Fajardo, Puerto Rico</div>
       <h1>Sabores que hacen que<br>cada mañana se sienta<br>especial.</h1>
 
       <p class="hero-text">
