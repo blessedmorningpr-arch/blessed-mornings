@@ -383,29 +383,31 @@
       font-size:.98rem;
     }
 
-    .floating-review{
-      position:fixed;
-      right:16px;
-      bottom:16px;
-      width:62px;
-      height:62px;
-      border-radius:50%;
-      background:#fff;
-      color:#111;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:26px;
-      box-shadow:0 10px 30px rgba(0,0,0,.35);
-      z-index:99;
-      border:1px solid rgba(0,0,0,.08);
-    }
+   .floating-review{
+  position:fixed;
+  right:16px;
+  bottom:16px;
+  width:65px;
+  height:65px;
+  border-radius:50%;
+  background:linear-gradient(180deg,#d6ab75,#c9985c);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:28px;
+  box-shadow:0 10px 30px rgba(0,0,0,.35);
+  z-index:99;
+  border:none;
+  animation:pulse 2s infinite;
+}
+    
 
-    @keyframes heroFade{
-      from{opacity:0; transform:translateY(16px)}
-      to{opacity:1; transform:translateY(0)}
-    }
-
+    @keyframes pulse{
+  0%{transform:scale(1)}
+  50%{transform:scale(1.08)}
+  100%{transform:scale(1)}
+}
     @keyframes logoPop{
       from{opacity:0; transform:scale(.92)}
       to{opacity:1; transform:scale(1)}
@@ -787,7 +789,7 @@
     Blessed Mornings · Fajardo, Puerto Rico
   </div>
 
-  <a class="floating-review" href="https://search.google.com/local/writereview?placeid=YOUR_PLACE_ID" target="_blank" aria-label="Google Review">★</a>
+  <a class="floating-review" href="https://g.page/r/CV9RD_KqfdNxECA/review" target="_blank" aria-label="Google Review">★</a>
 
 </body>
 </html>
