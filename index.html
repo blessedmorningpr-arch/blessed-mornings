@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blessed Mornings | Brunch & Coffee</title>
   <meta name="description" content="Blessed Mornings en Fajardo, Puerto Rico. Brunch, café, menú y bebidas." />
+
   <style>
     :root{
       --bg:#080808;
@@ -23,7 +24,7 @@
     html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family: Arial, Helvetica, sans-serif;
+      font-family:Arial, Helvetica, sans-serif;
       background:
         radial-gradient(circle at top, rgba(201,152,92,.10), transparent 30%),
         linear-gradient(to bottom, #0a0a0a 0%, #060606 100%);
@@ -56,6 +57,7 @@
         linear-gradient(to bottom, rgba(0,0,0,.40), rgba(0,0,0,.78)),
         url('hero.jpg') center/cover no-repeat;
       z-index:0;
+      transform:scale(1.02);
     }
 
     .hero-inner{
@@ -64,60 +66,48 @@
       width:min(100%, 820px);
       text-align:center;
       padding:34px 18px 42px;
+      animation:heroFade 1s ease both;
     }
 
     .logo-wrap{
-      width:124px;
-      height:124px;
-      margin:0 auto 20px;
-      border-radius:50%;
-      overflow:hidden;
-      background:rgba(255,255,255,0.03);
-      border:2px solid rgba(255,255,255,0.12);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      box-shadow:0 10px 30px rgba(0,0,0,0.35);
+      width:170px;
+      margin:0 auto 18px;
+      animation:logoPop 1.1s ease both;
     }
 
     .logo-img{
       width:100%;
-      height:100%;
-      object-fit:cover;
+      height:auto;
+      object-fit:contain;
       display:block;
+      filter:drop-shadow(0 10px 20px rgba(0,0,0,.28));
     }
 
     .eyebrow{
       display:inline-block;
       margin:0 auto 18px;
-      padding:10px 18px;
+      padding:12px 18px;
       border:1px solid rgba(255,255,255,.18);
       border-radius:999px;
-      font-size:13px;
-      letter-spacing:.22em;
+      font-size:11px;
+      letter-spacing:.14em;
       text-transform:uppercase;
       color:#f3ede6;
       backdrop-filter:blur(4px);
       background:rgba(10,10,10,.18);
+      white-space:nowrap;
+      animation:fadeUp 1s ease both;
     }
 
     h1{
-      margin:0 0 16px;
+      margin:0 0 26px;
       font-size:clamp(2.2rem, 7vw, 4.4rem);
       line-height:.98;
       font-weight:800;
       letter-spacing:-.03em;
       text-wrap:balance;
       text-shadow:0 8px 30px rgba(0,0,0,.35);
-    }
-
-    .hero-text{
-      width:min(100%, 760px);
-      margin:0 auto 26px;
-      color:#eee3d6;
-      font-size:clamp(1.08rem, 2.8vw, 1.7rem);
-      line-height:1.45;
-      text-wrap:balance;
+      animation:fadeUp 1.1s ease both;
     }
 
     .actions{
@@ -125,6 +115,7 @@
       gap:14px;
       width:min(100%, 760px);
       margin:0 auto;
+      animation:fadeUp 1.2s ease both;
     }
 
     .btn{
@@ -158,7 +149,10 @@
       color:#101010;
     }
 
-    section{padding:28px 0}
+    section{
+      padding:28px 0;
+      animation:sectionFade .8s ease both;
+    }
 
     .section-card{
       background:linear-gradient(180deg, rgba(18,18,18,.96), rgba(12,12,12,.96));
@@ -233,34 +227,50 @@
       padding-left:8px;
     }
 
-    .drinks-table{
-      width:100%;
-      border-collapse:collapse;
-      color:#f7eee4;
-      font-size:clamp(1rem, 2.1vw, 1.2rem);
+    .coffee-table{
+      margin-top:8px;
     }
 
-    .drinks-table th,
-    .drinks-table td{
-      padding:14px 0;
-      border-bottom:1px solid rgba(255,255,255,.08);
-      text-align:left;
-      vertical-align:top;
+    .coffee-head,
+    .coffee-row{
+      display:grid;
+      grid-template-columns:minmax(130px, 1.7fr) repeat(3, minmax(58px, 1fr));
+      gap:10px;
+      align-items:center;
     }
 
-    .drinks-table th{
+    .coffee-head{
       color:var(--gold-soft);
-      font-size:1rem;
+      font-size:clamp(1rem, 2vw, 1.35rem);
+      font-weight:800;
       letter-spacing:.18em;
       text-transform:uppercase;
-      font-weight:800;
+      border-bottom:1px solid rgba(255,255,255,.08);
+      padding:8px 0 14px;
+      margin-bottom:4px;
     }
 
-    .drinks-table td:last-child,
-    .drinks-table th:last-child{
-      text-align:right;
+    .coffee-row{
+      padding:16px 0;
+      border-bottom:1px solid rgba(255,255,255,.08);
+      font-size:clamp(1rem, 2.1vw, 1.22rem);
+      color:#f7eee4;
+    }
+
+    .coffee-row:last-child{border-bottom:none}
+
+    .coffee-name{
+      font-size:clamp(1.15rem, 2.5vw, 1.8rem);
+      font-weight:800;
+      color:#fff5ea;
+    }
+
+    .coffee-price{
+      text-align:center;
+      font-size:clamp(1rem, 2.2vw, 1.22rem);
+      font-weight:700;
+      color:#f7eee4;
       white-space:nowrap;
-      padding-left:14px;
     }
 
     .special-grid{
@@ -367,21 +377,42 @@
       font-size:.98rem;
     }
 
-    .floating-wa{
+    .floating-review{
       position:fixed;
       right:16px;
       bottom:16px;
-      width:58px;
-      height:58px;
+      width:62px;
+      height:62px;
       border-radius:50%;
-      background:#25D366;
-      color:#fff;
+      background:#fff;
+      color:#111;
       display:flex;
       align-items:center;
       justify-content:center;
-      font-size:28px;
+      font-size:26px;
       box-shadow:0 10px 30px rgba(0,0,0,.35);
       z-index:99;
+      border:1px solid rgba(0,0,0,.08);
+    }
+
+    @keyframes heroFade{
+      from{opacity:0; transform:translateY(16px)}
+      to{opacity:1; transform:translateY(0)}
+    }
+
+    @keyframes logoPop{
+      from{opacity:0; transform:scale(.92)}
+      to{opacity:1; transform:scale(1)}
+    }
+
+    @keyframes fadeUp{
+      from{opacity:0; transform:translateY(18px)}
+      to{opacity:1; transform:translateY(0)}
+    }
+
+    @keyframes sectionFade{
+      from{opacity:0; transform:translateY(12px)}
+      to{opacity:1; transform:translateY(0)}
     }
 
     @media (min-width: 860px){
@@ -389,6 +420,10 @@
       .special-grid{grid-template-columns:repeat(4, 1fr)}
       .section-card,.visit-box{padding:30px}
       .menu-wrap{padding:26px}
+      .eyebrow{
+        font-size:14px;
+        letter-spacing:.18em;
+      }
     }
   </style>
 </head>
@@ -400,13 +435,9 @@
         <img src="logo.PNG" alt="Blessed Mornings logo" class="logo-img">
       </div>
 
-      <div class="eyebrow">Brunch &amp; Coffee · Fajardo, Puerto Rico</div>
+      <div class="eyebrow">BRUNCH &amp; COFFEE · FAJARDO, PUERTO RICO</div>
 
       <h1>Sabores que hacen que<br>cada mañana se sienta<br>especial.</h1>
-
-      <p class="hero-text">
-        Brunch, café y platos con personalidad en un espacio acogedor donde cada visita se disfruta con calma, sabor y estilo.
-      </p>
 
       <div class="actions">
         <a class="btn btn-gold" href="#menu">Ver menú</a>
@@ -560,25 +591,77 @@
 
         <div class="menu-wrap">
           <div class="menu-group">
-            <table class="drinks-table">
-              <thead>
-                <tr>
-                  <th>Café</th>
-                  <th>8 oz&nbsp;&nbsp;&nbsp;10 oz&nbsp;&nbsp;&nbsp;12 oz</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr><td><strong>Latte</strong></td><td>3.25&nbsp;&nbsp;&nbsp;3.40&nbsp;&nbsp;&nbsp;4.00</td></tr>
-                <tr><td><strong>Cappuchino</strong></td><td>3.50&nbsp;&nbsp;&nbsp;3.85&nbsp;&nbsp;&nbsp;4.50</td></tr>
-                <tr><td><strong>Espresso</strong></td><td>2.00</td></tr>
-                <tr><td><strong>Americano</strong></td><td>2.75&nbsp;&nbsp;&nbsp;3.00&nbsp;&nbsp;&nbsp;3.50</td></tr>
-                <tr><td><strong>Mocha</strong></td><td>3.85&nbsp;&nbsp;&nbsp;4.00&nbsp;&nbsp;&nbsp;4.75</td></tr>
-                <tr><td><strong>Red Velvet</strong></td><td>4.50&nbsp;&nbsp;&nbsp;4.60&nbsp;&nbsp;&nbsp;4.85</td></tr>
-                <tr><td><strong>Hot Cocoa</strong></td><td>3.00&nbsp;&nbsp;&nbsp;3.75&nbsp;&nbsp;&nbsp;3.90</td></tr>
-                <tr><td><strong>Dirty Chai</strong></td><td>4.00&nbsp;&nbsp;&nbsp;4.60&nbsp;&nbsp;&nbsp;4.85</td></tr>
-                <tr><td><strong>Chai Latte</strong></td><td>3.75&nbsp;&nbsp;&nbsp;4.00&nbsp;&nbsp;&nbsp;4.50</td></tr>
-              </tbody>
-            </table>
+            <div class="coffee-table">
+              <div class="coffee-head">
+                <div>CAFÉ</div>
+                <div style="text-align:center;">8 OZ</div>
+                <div style="text-align:center;">10 OZ</div>
+                <div style="text-align:center;">12 OZ</div>
+              </div>
+
+              <div class="coffee-row">
+                <div class="coffee-name">Latte</div>
+                <div class="coffee-price">3.25</div>
+                <div class="coffee-price">3.40</div>
+                <div class="coffee-price">4.00</div>
+              </div>
+
+              <div class="coffee-row">
+                <div class="coffee-name">Cappuchino</div>
+                <div class="coffee-price">3.50</div>
+                <div class="coffee-price">3.85</div>
+                <div class="coffee-price">4.50</div>
+              </div>
+
+              <div class="coffee-row">
+                <div class="coffee-name">Espresso</div>
+                <div class="coffee-price">2.00</div>
+                <div class="coffee-price"></div>
+                <div class="coffee-price"></div>
+              </div>
+
+              <div class="coffee-row">
+                <div class="coffee-name">Americano</div>
+                <div class="coffee-price">2.75</div>
+                <div class="coffee-price">3.00</div>
+                <div class="coffee-price">3.50</div>
+              </div>
+
+              <div class="coffee-row">
+                <div class="coffee-name">Mocha</div>
+                <div class="coffee-price">3.85</div>
+                <div class="coffee-price">4.00</div>
+                <div class="coffee-price">4.75</div>
+              </div>
+
+              <div class="coffee-row">
+                <div class="coffee-name">Red Velvet</div>
+                <div class="coffee-price">4.50</div>
+                <div class="coffee-price">4.60</div>
+                <div class="coffee-price">4.85</div>
+              </div>
+
+              <div class="coffee-row">
+                <div class="coffee-name">Hot Cocoa</div>
+                <div class="coffee-price">3.00</div>
+                <div class="coffee-price">3.75</div>
+                <div class="coffee-price">3.90</div>
+              </div>
+
+              <div class="coffee-row">
+                <div class="coffee-name">Dirty Chai</div>
+                <div class="coffee-price">4.00</div>
+                <div class="coffee-price">4.60</div>
+                <div class="coffee-price">4.85</div>
+              </div>
+
+              <div class="coffee-row">
+                <div class="coffee-name">Chai Latte</div>
+                <div class="coffee-price">3.75</div>
+                <div class="coffee-price">4.00</div>
+                <div class="coffee-price">4.50</div>
+              </div>
+            </div>
           </div>
 
           <div class="menu-group">
@@ -587,7 +670,6 @@
             <div class="menu-item"><div class="menu-name">Caramel Macchiato</div><div class="price">6.00</div></div>
             <div class="menu-item"><div class="menu-name">Mocha</div><div class="price">6.00</div></div>
             <div class="menu-item"><div class="menu-name">White Chocolate</div><div class="price">6.75</div></div>
-            <div class="menu-item"><div class="menu-name">Matcha</div><div class="price">8.00</div></div>
             <div class="menu-item"><div class="menu-name">Matcha Ceremonial</div><div class="price">8.00</div></div>
           </div>
 
@@ -636,7 +718,7 @@
             <div class="special-name">Hechos</div>
           </div>
           <div class="special-card">
-            <img src="special-redvelvet.JPG" alt="Waffles Red Velvet">
+            <img src="special-redvelvet-new.JPG" alt="Waffles Red Velvet">
             <div class="special-name">Waffles Red Velvet</div>
           </div>
           <div class="special-card">
@@ -694,7 +776,7 @@
     Blessed Mornings · Fajardo, Puerto Rico
   </div>
 
-  <a class="floating-wa" href="https://wa.me/17873183877" target="_blank" aria-label="WhatsApp">✆</a>
+  <a class="floating-review" href="https://search.google.com/local/writereview?placeid=YOUR_PLACE_ID" target="_blank" aria-label="Google Review">★</a>
 
 </body>
 </html>
