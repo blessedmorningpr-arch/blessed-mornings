@@ -339,39 +339,36 @@
 .special-card:hover img{
   transform:scale(1.08);
 }
-    .special-card.avocado-card img{
-      transform:scale(1.15);
-    }
-
+    
     .special-card::after{
   content:"";
   position:absolute;
   inset:0;
-  background:linear-gradient(to top, rgba(0,0,0,.55), rgba(0,0,0,.05) 50%);
+  background:linear-gradient(to top, rgba(0,0,0,.35), rgba(0,0,0,.02) 55%);
 }
 
     .special-name{
   position:absolute;
-  left:16px;
-  right:16px;
-  bottom:16px;
+  left:18px;
+  right:18px;
+  bottom:18px;
   z-index:2;
   text-align:center;
 
-  font-size:clamp(1.1rem, 2.4vw, 1.5rem);
-  font-weight:700;
-  letter-spacing:.02em;
+  font-size:clamp(1.05rem, 2.3vw, 1.45rem);
+  font-weight:600;
 
-  padding:14px 16px;
+  padding:12px 16px;
   border-radius:999px;
 
-  background:rgba(255,255,255,.08);
-  backdrop-filter:blur(14px);
+  background:rgba(255,255,255,.12);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
 
-  color:#ffffff;
+  color:#fff;
 
-  border:1px solid rgba(255,255,255,.15);
-  box-shadow:0 6px 20px rgba(0,0,0,.25);
+  border:1px solid rgba(255,255,255,.18);
+  box-shadow:0 6px 18px rgba(0,0,0,.20);
 }
 
     .visit-box{
