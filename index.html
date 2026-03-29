@@ -234,9 +234,9 @@
     .coffee-head,
     .coffee-row{
       display:grid;
-      grid-template-columns:minmax(130px, 1.7fr) repeat(3, minmax(58px, 1fr));
-      gap:10px;
+      grid-template-columns:2fr 1fr 1fr 1fr;
       align-items:center;
+      gap:10px;
     }
 
     .coffee-head{
@@ -263,12 +263,14 @@
       font-size:clamp(1.15rem, 2.5vw, 1.8rem);
       font-weight:800;
       color:#fff5ea;
+      white-space:nowrap;
     }
 
     .coffee-price{
       text-align:center;
       font-size:clamp(1rem, 2.2vw, 1.22rem);
-      font-weight:700;
+      font-weight:800;
+      letter-spacing:.5px;
       color:#f7eee4;
       white-space:nowrap;
     }
@@ -293,6 +295,10 @@
       width:100%;
       height:100%;
       object-fit:cover;
+    }
+
+    .special-card.avocado-card img{
+      transform:scale(1.15);
     }
 
     .special-card::after{
@@ -428,9 +434,6 @@
   </style>
 </head>
 <body>
-  <div style="position:fixed;top:10px;left:10px;background:red;color:white;padding:10px;z-index:99999;">
-PRUEBA NUEVA
-</div>
 
   <header class="hero">
     <div class="hero-inner container">
@@ -669,20 +672,25 @@ PRUEBA NUEVA
 
           <div class="menu-group">
             <div class="menu-label">Iced Coffee · 16 oz</div>
-            <div class="menu-item"><div class="menu-name">Latte</div><div class="price">5.50</div></div>
-            <div class="menu-item"><div class="menu-name">Caramel Macchiato</div><div class="price">6.00</div></div>
-            <div class="menu-item"><div class="menu-name">Mocha</div><div class="price">6.00</div></div>
+            <div class="menu-item"><div class="menu-name">Latte</div><div class="price">5.75</div></div>
+            <div class="menu-item"><div class="menu-name">Caramel Macchiato</div><div class="price">6.75</div></div>
+            <div class="menu-item"><div class="menu-name">Mocha</div><div class="price">6.75</div></div>
             <div class="menu-item"><div class="menu-name">White Chocolate</div><div class="price">6.75</div></div>
             <div class="menu-item"><div class="menu-name">Matcha Ceremonial</div><div class="price">8.00</div></div>
           </div>
 
           <div class="menu-group">
+            <div class="menu-label">Añade Syrup +1</div>
+            <div class="menu-desc">Vainilla, Amareto, Caramelo, White Chocolate, Pistacho, Coco, Mocha, Hazelnut.</div>
+          </div>
+
+          <div class="menu-group">
             <div class="menu-label">Frozen · 16 oz</div>
-            <div class="menu-item"><div class="menu-name">Java Chip</div><div class="price">6.00</div></div>
-            <div class="menu-item"><div class="menu-name">Mocha</div><div class="price">6.00</div></div>
-            <div class="menu-item"><div class="menu-name">Caramel Capuccino</div><div class="price">6.75</div></div>
-            <div class="menu-item"><div class="menu-name">Cookie's &amp; Cream</div><div class="price">6.75</div></div>
-            <div class="menu-item"><div class="menu-name">Red Velvet</div><div class="price">6.75</div></div>
+            <div class="menu-item"><div class="menu-name">Mocha</div><div class="price">6.75</div></div>
+            <div class="menu-item"><div class="menu-name">Java Chip</div><div class="price">7.00</div></div>
+            <div class="menu-item"><div class="menu-name">Caramel Capuchino</div><div class="price">7.00</div></div>
+            <div class="menu-item"><div class="menu-name">Cookie’s &amp; Cream</div><div class="price">7.00</div></div>
+            <div class="menu-item"><div class="menu-name">Red Velvet</div><div class="price">7.00</div></div>
           </div>
 
           <div class="menu-group">
@@ -712,7 +720,7 @@ PRUEBA NUEVA
         <h2 class="section-title">Especialidades</h2>
 
         <div class="special-grid">
-          <div class="special-card">
+          <div class="special-card avocado-card">
             <img src="special-avocado.jpg" alt="Avocado Toast">
             <div class="special-name">Avocado Toast</div>
           </div>
