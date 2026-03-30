@@ -1,197 +1,879 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blessed Mornings | Coffee & Brunch</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blessed Mornings | Brunch & Coffee</title>
+  <meta name="description" content="Blessed Mornings in Fajardo, Puerto Rico. Brunch, coffee, menu and drinks." />
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <script>
+  (function () {
+    var userLang = (navigator.language || navigator.userLanguage || "").toLowerCase();
+    var isSpanish = userLang.startsWith("es");
+    var onEnglishPage = window.location.pathname.startsWith("/en/");
+    var hasChosenLang = localStorage.getItem("bm_lang_choice");
 
-<style>
-:root{
-  --gold:#c9985c;
-  --bg:#0f0f0f;
-}
+    if (!hasChosenLang && isSpanish && onEnglishPage) {
+      window.location.replace("/");
+    }
+  })();
+  </script>
 
-body{
-  margin:0;
-  font-family:'Poppins',sans-serif;
-  background:var(--bg);
-  color:#fff;
-}
+  <style>
+    :root{
+      --bg:#080808;
+      --panel:#111111;
+      --panel-2:#181614;
+      --gold:#c9985c;
+      --gold-soft:#d6ab75;
+      --text:#f6f1ea;
+      --muted:#d6cec3;
+      --line:rgba(255,255,255,.10);
+      --shadow:0 12px 40px rgba(0,0,0,.35);
+      --radius:28px;
+    }
 
-/* LANGUAGE BUTTON */
-.lang-btn{
-  position:fixed;
-  top:16px;
-  right:16px;
-  z-index:1000;
-  padding:10px 14px;
-  border-radius:999px;
-  background:rgba(0,0,0,.6);
-  color:#fff;
-  text-decoration:none;
-  font-weight:600;
-}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(201,152,92,.10), transparent 30%),
+        linear-gradient(to bottom, #0a0a0a 0%, #060606 100%);
+      color:var(--text);
+    }
 
-/* HERO */
-.hero{
-  height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:20px;
-  background:url('https://images.unsplash.com/photo-1504674900247-0877df9cc836') center/cover;
-}
+    img{max-width:100%;display:block}
+    a{text-decoration:none;color:inherit}
 
-.hero h1{
-  font-family:'Playfair Display',serif;
-  font-size:42px;
-  line-height:1.2;
-}
+    .container{
+      width:min(100%, 980px);
+      margin:0 auto;
+      padding:0 18px;
+    }
 
-.hero-buttons a{
-  margin:10px;
-  padding:12px 18px;
-  background:var(--gold);
-  color:#fff;
-  border-radius:999px;
-  text-decoration:none;
-  font-weight:600;
-}
+    .lang-btn{
+      position:fixed;
+      top:20px;
+      right:20px;
+      z-index:99999;
+      padding:12px 16px;
+      border-radius:999px;
+      background:#c9985c;
+      color:#fff;
+      font-weight:700;
+      text-decoration:none;
+      box-shadow:0 4px 12px rgba(0,0,0,.4);
+    }
 
-/* SECTION */
-.section{
-  padding:60px 20px;
-  max-width:1000px;
-  margin:auto;
-}
+    .hero{
+      position:relative;
+      min-height:100svh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+    }
 
-.section h2{
-  font-family:'Playfair Display',serif;
-  text-align:center;
-  margin-bottom:20px;
-}
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(to bottom, rgba(0,0,0,.40), rgba(0,0,0,.78)),
+        url('/hero.jpg') center/cover no-repeat;
+      z-index:0;
+      transform:scale(1.02);
+    }
 
-.card{
-  background:#1a1a1a;
-  padding:20px;
-  border-radius:16px;
-  margin-bottom:20px;
-}
+    .hero-inner{
+      position:relative;
+      z-index:2;
+      width:min(100%, 820px);
+      text-align:center;
+      padding:34px 18px 42px;
+      animation:heroFade 1.05s ease both;
+    }
 
-footer{
-  text-align:center;
-  padding:40px;
-  font-size:14px;
-  opacity:.7;
-}
-</style>
+    .logo-wrap{
+      width:170px;
+      margin:0 auto 18px;
+      animation:logoPop 1.1s ease both;
+    }
+
+    .logo-img{
+      width:100%;
+      height:auto;
+      object-fit:contain;
+      display:block;
+      filter:drop-shadow(0 10px 20px rgba(0,0,0,.28));
+    }
+
+    .eyebrow{
+      display:inline-block;
+      margin:0 auto 18px;
+      padding:12px 18px;
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:999px;
+      font-size:11px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:#f3ede6;
+      backdrop-filter:blur(8px);
+      background:rgba(10,10,10,.26);
+      white-space:nowrap;
+      animation:fadeUp 1s ease both;
+    }
+
+    h1{
+      margin:0 0 26px;
+      font-size:clamp(2.2rem, 7vw, 4.4rem);
+      line-height:.98;
+      font-weight:800;
+      letter-spacing:-.03em;
+      text-wrap:balance;
+      text-shadow:0 8px 30px rgba(0,0,0,.35);
+      animation:fadeUp 1.15s ease both;
+    }
+
+    .actions{
+      display:grid;
+      gap:14px;
+      width:min(100%, 760px);
+      margin:0 auto;
+      animation:fadeUp 1.2s ease both;
+    }
+
+    .btn{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:68px;
+      border-radius:999px;
+      font-size:clamp(1.2rem, 2.7vw, 2rem);
+      font-weight:800;
+      transition:transform .22s ease, box-shadow .22s ease, filter .22s ease;
+      box-shadow:var(--shadow);
+      border:1px solid transparent;
+      text-align:center;
+      padding:14px 22px;
+    }
+
+    .btn:hover{
+      transform:translateY(-2px) scale(1.01);
+      filter:brightness(1.03);
+      box-shadow:0 16px 36px rgba(0,0,0,.38);
+    }
+
+    .btn-gold{
+      background:linear-gradient(180deg, var(--gold-soft), var(--gold));
+      color:#fff;
+    }
+    .btn-dark{
+      background:rgba(10,10,10,.72);
+      color:#fff;
+      border-color:rgba(255,255,255,.08);
+      backdrop-filter:blur(6px);
+    }
+    .btn-light{
+      background:#f4efe8;
+      color:#101010;
+    }
+
+    section{
+      padding:60px 0;
+      animation:sectionFade .8s ease both;
+    }
+
+    .section-card{
+      background:linear-gradient(180deg, rgba(18,18,18,.96), rgba(12,12,12,.96));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:22px;
+      box-shadow:var(--shadow);
+      animation:cardUp .7s ease both;
+    }
+
+    .section-title{
+      margin:0 0 18px;
+      font-size:clamp(2rem, 5vw, 3.2rem);
+      font-weight:800;
+      line-height:1;
+      letter-spacing:-.03em;
+    }
+
+    .about{
+      font-size:clamp(1.18rem, 2.8vw, 1.95rem);
+      line-height:1.7;
+      color:#efe7dc;
+    }
+
+    .menu-wrap{
+      background:linear-gradient(180deg, #151311, #111111);
+      border:1px solid rgba(201,152,92,.18);
+      border-radius:26px;
+      padding:16px;
+    }
+
+    .menu-group + .menu-group{margin-top:26px}
+
+    .menu-label{
+      color:var(--gold-soft);
+      font-size:clamp(1.05rem, 2vw, 1.35rem);
+      font-weight:800;
+      letter-spacing:.20em;
+      text-transform:uppercase;
+      margin:2px 0 18px;
+    }
+
+    .menu-item{
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:12px;
+      padding:14px 0;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+
+    .menu-item:last-child{border-bottom:none}
+
+    .menu-name{
+      font-size:clamp(1.25rem, 3vw, 1.95rem);
+      font-weight:800;
+      color:#fff5ea;
+      line-height:1.15;
+      margin-bottom:6px;
+    }
+
+    .menu-desc{
+      font-size:clamp(1rem, 2.2vw, 1.18rem);
+      line-height:1.6;
+      color:#e4d8ca;
+    }
+
+    .price{
+      font-size:clamp(1.15rem, 2.7vw, 1.9rem);
+      font-weight:800;
+      color:#fff0df;
+      white-space:nowrap;
+      align-self:start;
+      padding-left:8px;
+    }
+
+    .coffee-table{
+      margin-top:8px;
+    }
+
+    .coffee-head,
+    .coffee-row{
+      display:grid;
+      grid-template-columns:2fr 1fr 1fr 1fr;
+      align-items:center;
+      gap:12px;
+    }
+
+    .coffee-head{
+      color:var(--gold-soft);
+      font-size:clamp(1rem, 2vw, 1.35rem);
+      font-weight:800;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      border-bottom:1px solid rgba(255,255,255,.08);
+      padding:10px 0 16px;
+      margin-bottom:4px;
+    }
+
+    .coffee-row{
+      padding:18px 0;
+      border-bottom:1px solid rgba(255,255,255,.08);
+      font-size:clamp(1rem, 2.1vw, 1.22rem);
+      color:#f7eee4;
+    }
+
+    .coffee-row:last-child{border-bottom:none}
+
+    .coffee-name{
+      font-size:clamp(1.15rem, 2.5vw, 1.8rem);
+      font-weight:800;
+      color:#fff5ea;
+      white-space:nowrap;
+    }
+
+    .coffee-price{
+      text-align:center;
+      font-size:clamp(1rem, 2.2vw, 1.22rem);
+      font-weight:800;
+      letter-spacing:.5px;
+      color:#f7eee4;
+      white-space:nowrap;
+    }
+
+    .addon-block{
+      padding:16px 0 6px;
+      border-top:1px solid rgba(255,255,255,.08);
+    }
+
+    .addon-title{
+      color:var(--gold-soft);
+      font-size:clamp(1.05rem, 2vw, 1.35rem);
+      font-weight:800;
+      letter-spacing:.20em;
+      text-transform:uppercase;
+      margin:0 0 16px;
+    }
+
+    .addon-text{
+      font-size:clamp(1.2rem, 2.8vw, 1.9rem);
+      line-height:1.65;
+      color:#f1e6d8;
+      margin:0;
+    }
+
+    .special-grid{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:14px;
+    }
+
+    .special-card{
+      position:relative;
+      overflow:hidden;
+      border-radius:24px;
+      min-height:265px;
+      border:1px solid rgba(255,255,255,.06);
+      background:#151515;
+      box-shadow:0 10px 28px rgba(0,0,0,.28);
+      transition:transform .25s ease, box-shadow .25s ease;
+    }
+
+    .special-card:hover{
+      transform:translateY(-4px);
+      box-shadow:0 18px 40px rgba(0,0,0,.42);
+    }
+
+    .special-card img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:transform .6s ease;
+    }
+
+    .special-card:hover img{
+      transform:scale(1.04);
+    }
+
+    .special-card::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to top, rgba(0,0,0,.38), rgba(0,0,0,.02) 56%);
+    }
+
+    .special-name{
+      position:absolute;
+      left:18px;
+      right:18px;
+      bottom:18px;
+      z-index:2;
+      text-align:center;
+      font-size:clamp(1.05rem, 2.3vw, 1.45rem);
+      font-weight:700;
+      color:#fff;
+      padding:12px 16px;
+      border-radius:999px;
+      background:rgba(255,255,255,.10);
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+      border:1px solid rgba(255,255,255,.14);
+      box-shadow:0 6px 18px rgba(0,0,0,.20);
+    }
+
+    .visit-box{
+      background:#f3ede3;
+      color:#292421;
+      border-radius:28px;
+      padding:24px;
+      box-shadow:var(--shadow);
+      border:1px solid rgba(0,0,0,.06);
+    }
+
+    .visit-title{
+      margin:0 0 18px;
+      color:#9f6834;
+      font-size:clamp(2rem, 5vw, 3.2rem);
+      font-weight:800;
+      line-height:1;
+      letter-spacing:-.03em;
+    }
+
+    .visit-row{
+      padding:18px 0;
+      border-bottom:1px solid rgba(0,0,0,.08);
+    }
+
+    .visit-row:last-of-type{border-bottom:none}
+    .visit-label{
+      font-size:clamp(1.02rem, 2vw, 1.25rem);
+      margin-bottom:6px;
+      color:#3d3732;
+    }
+    .visit-value{
+      font-size:clamp(1.25rem, 2.8vw, 2rem);
+      font-weight:800;
+      line-height:1.4;
+      color:#241f1a;
+    }
+
+    .map-wrap{
+      margin-top:18px;
+      border-radius:24px;
+      overflow:hidden;
+      border:1px solid rgba(0,0,0,.08);
+      min-height:280px;
+      background:#ddd;
+    }
+
+    .map-wrap iframe{
+      width:100%;
+      height:280px;
+      border:0;
+      display:block;
+    }
+
+    .footer{
+      text-align:center;
+      color:#d8c9b8;
+      padding:24px 18px 40px;
+      font-size:.98rem;
+    }
+
+    .floating-review{
+      position:fixed;
+      right:16px;
+      bottom:16px;
+      width:65px;
+      height:65px;
+      border-radius:50%;
+      background:linear-gradient(180deg,#d6ab75,#c9985c);
+      color:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:28px;
+      box-shadow:0 10px 30px rgba(0,0,0,.35);
+      z-index:99;
+      border:none;
+      animation:pulse 2.4s infinite;
+      transition:transform .2s ease;
+    }
+
+    .floating-review:hover{
+      transform:scale(1.06);
+    }
+
+    @keyframes heroFade{
+      from{opacity:0; transform:translateY(16px)}
+      to{opacity:1; transform:translateY(0)}
+    }
+
+    @keyframes logoPop{
+      from{opacity:0; transform:scale(.92)}
+      to{opacity:1; transform:scale(1)}
+    }
+
+    @keyframes fadeUp{
+      from{opacity:0; transform:translateY(18px)}
+      to{opacity:1; transform:translateY(0)}
+    }
+
+    @keyframes sectionFade{
+      from{opacity:0; transform:translateY(12px)}
+      to{opacity:1; transform:translateY(0)}
+    }
+
+    @keyframes cardUp{
+      from{opacity:0; transform:translateY(20px)}
+      to{opacity:1; transform:translateY(0)}
+    }
+
+    @keyframes pulse{
+      0%{transform:scale(1)}
+      50%{transform:scale(1.08)}
+      100%{transform:scale(1)}
+    }
+
+    @media (min-width: 860px){
+      .actions{grid-template-columns:repeat(4, 1fr)}
+      .special-grid{grid-template-columns:repeat(4, 1fr)}
+      .section-card,.visit-box{padding:30px}
+      .menu-wrap{padding:26px}
+      .eyebrow{
+        font-size:14px;
+        letter-spacing:.18em;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<a href="/" class="lang-btn">ES</a>
+  <a href="/" class="lang-btn" onclick="localStorage.setItem('bm_lang_choice','es')">ES</a>
 
-<!-- HERO -->
-<section class="hero">
-  <div>
-    <h1>Flavors that make<br>every morning feel special.</h1>
-    <div class="hero-buttons">
-      <a href="#menu">View Menu</a>
-      <a href="#drinks">Drinks ☕</a>
-      <a href="tel:7873183877">Call Now</a>
-      <a href="https://instagram.com/blessedmorningspr">Instagram</a>
+  <header class="hero">
+    <div class="hero-inner container">
+      <div class="logo-wrap">
+        <img src="/logo.PNG" alt="Blessed Mornings logo" class="logo-img">
+      </div>
+
+      <div class="eyebrow">BRUNCH &amp; COFFEE · FAJARDO, PUERTO RICO</div>
+
+      <h1>Flavors that make<br>every morning feel<br>special.</h1>
+
+      <div class="actions">
+        <a class="btn btn-gold" href="#menu">View Menu</a>
+        <a class="btn btn-dark" href="#drinks">View Drinks ☕</a>
+        <a class="btn btn-light" href="tel:17873183877">Call Now</a>
+        <a class="btn btn-dark" href="https://www.instagram.com/blessedmorningspr/" target="_blank">Instagram</a>
+      </div>
     </div>
+  </header>
+
+  <main class="container">
+    <section style="margin-top:18px;">
+      <div class="section-card">
+        <h2 class="section-title">About Us</h2>
+        <div class="about">
+          At Blessed Mornings, every detail is designed to make your morning feel special. A welcoming space, handcrafted coffee, and beautifully prepared dishes made to be enjoyed slowly.
+        </div>
+      </div>
+    </section>
+
+    <section id="menu">
+      <div class="section-card">
+        <h2 class="section-title">Menu</h2>
+
+        <div class="menu-wrap">
+          <div class="menu-group">
+            <div class="menu-label">Sandwiches</div>
+
+            <div class="menu-item">
+              <div>
+                <div class="menu-name">Genesis</div>
+                <div class="menu-desc">Croissant, American Cheese, Lettuce, Turkey Ham</div>
+              </div>
+              <div class="price">8.95</div>
+            </div>
+
+            <div class="menu-item">
+              <div>
+                <div class="menu-name">Exodus</div>
+                <div class="menu-desc">Ciabatta, Swiss Cheese, Turkey, Salami, Lettuce</div>
+              </div>
+              <div class="price">10.00</div>
+            </div>
+
+            <div class="menu-item">
+              <div>
+                <div class="menu-name">Psalms</div>
+                <div class="menu-desc">Mallorca Bread, Cheddar Cheese, Regular Ham, Raspberry Jam</div>
+              </div>
+              <div class="price">9.75</div>
+            </div>
+
+            <div class="menu-item">
+              <div>
+                <div class="menu-name">Avocado Toast</div>
+                <div class="menu-desc">Rosemary Bread, Avocado, Cherry Tomatoes, Salami, Egg, Bacon, Balsamic Glaze, Manchego Cheese</div>
+              </div>
+              <div class="price">15.00</div>
+            </div>
+          </div>
+
+          <div class="menu-group">
+            <div class="menu-label">Pancakes</div>
+
+            <div class="menu-item"><div class="menu-name">Regular</div><div class="price">6.00</div></div>
+            <div class="menu-item"><div class="menu-name">Nutella Filled</div><div class="price">8.00</div></div>
+            <div class="menu-item"><div class="menu-name">Red Velvet</div><div class="price">10.00</div></div>
+            <div class="menu-item"><div class="menu-name">Chocolate Chip</div><div class="price">8.00</div></div>
+          </div>
+
+          <div class="menu-group">
+            <div class="menu-label">Waffles</div>
+
+            <div class="menu-item"><div class="menu-name">Regular Waffle</div><div class="price">6.00</div></div>
+            <div class="menu-item"><div class="menu-name">Oat Waffle</div><div class="price">8.00</div></div>
+            <div class="menu-item"><div class="menu-name">Red Velvet Waffle</div><div class="price">10.00</div></div>
+          </div>
+
+          <div class="menu-group">
+            <div class="menu-label">Add Protein</div>
+
+            <div class="menu-item"><div class="menu-name">Turkey Ham</div><div class="price">3.50</div></div>
+            <div class="menu-item"><div class="menu-name">Regular Ham</div><div class="price">2.00</div></div>
+            <div class="menu-item"><div class="menu-name">Italian Sausage</div><div class="price">2.85</div></div>
+            <div class="menu-item"><div class="menu-name">Bacon</div><div class="price">3.85</div></div>
+          </div>
+
+          <div class="menu-group">
+            <div class="menu-label">Add Fruits</div>
+            <div class="menu-item">
+              <div class="menu-name">Strawberry, Kiwi, Banana, Blueberries</div>
+              <div class="price">3.95</div>
+            </div>
+          </div>
+
+          <div class="menu-group">
+            <div class="addon-block">
+              <h3 class="addon-title">Toppings +1 each</h3>
+              <p class="addon-text">Nutella, Almonds, Whipped Cream, Walnuts, Cream Cheese, Chocolate, Caramel.</p>
+            </div>
+          </div>
+
+          <div class="menu-group">
+            <div class="menu-label">Plates</div>
+
+            <div class="menu-item">
+              <div>
+                <div class="menu-name">Romans</div>
+                <div class="menu-desc">Omelet or scrambled eggs with vegetables. Choose one: bacon / turkey ham / Italian sausage, cheese of your choice, and choose between fruit or buttered toast.</div>
+              </div>
+              <div class="price">13.00</div>
+            </div>
+
+            <div class="menu-item">
+              <div>
+                <div class="menu-name">Philippians</div>
+                <div class="menu-desc">Pancake Tacos (scrambled eggs, bacon, cheddar cheese) served with fruit.</div>
+              </div>
+              <div class="price">14.00</div>
+            </div>
+
+            <div class="menu-item">
+              <div>
+                <div class="menu-name">Acts</div>
+                <div class="menu-desc">French Toast Sandwich (regular ham, egg, cheddar cheese)</div>
+              </div>
+              <div class="price">14.00</div>
+            </div>
+
+            <div class="menu-item">
+              <div>
+                <div class="menu-name">Apocalypse</div>
+                <div class="menu-desc">French Toast or Pancakes with Nutella and fruit, scrambled eggs with vegetables, cheese of your choice, and bacon.</div>
+              </div>
+              <div class="price">16.00</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="drinks">
+      <div class="section-card">
+        <h2 class="section-title">Drinks</h2>
+
+        <div class="menu-wrap">
+          <div class="menu-group">
+            <div class="coffee-table">
+              <div class="coffee-head">
+                <div>COFFEE</div>
+                <div style="text-align:center;">8 OZ</div>
+                <div style="text-align:center;">10 OZ</div>
+                <div style="text-align:center;">12 OZ</div>
+              </div>
+
+              <div class="coffee-row">
+                <div class="coffee-name">Latte</div>
+                <div class="coffee-price">3.25</div>
+                <div class="coffee-price">3.40</div>
+                <div class="coffee-price">4.00</div>
+              </div>
+
+              <div class="coffee-row">
+                <div class="coffee-name">Cappuccino</div>
+                <div class="coffee-price">3.50</div>
+                <div class="coffee-price">3.85</div>
+                <div class="coffee-price">4.50</div>
+              </div>
+
+              <div class="coffee-row">
+                <div class="coffee-name">Espresso</div>
+                <div class="coffee-price">2.00</div>
+                <div class="coffee-price"></div>
+                <div class="coffee-price"></div>
+              </div>
+
+              <div class="coffee-row">
+                <div class="coffee-name">Americano</div>
+                <div class="coffee-price">2.75</div>
+                <div class="coffee-price">3.00</div>
+                <div class="coffee-price">3.50</div>
+              </div>
+
+              <div class="coffee-row">
+                <div class="coffee-name">Mocha</div>
+                <div class="coffee-price">3.85</div>
+                <div class="coffee-price">4.00</div>
+                <div class="coffee-price">4.75</div>
+              </div>
+
+              <div class="coffee-row">
+                <div class="coffee-name">Red Velvet</div>
+                <div class="coffee-price">4.50</div>
+                <div class="coffee-price">4.60</div>
+                <div class="coffee-price">4.85</div>
+              </div>
+
+              <div class="coffee-row">
+                <div class="coffee-name">Hot Cocoa</div>
+                <div class="coffee-price">3.00</div>
+                <div class="coffee-price">3.75</div>
+                <div class="coffee-price">3.90</div>
+              </div>
+
+              <div class="coffee-row">
+                <div class="coffee-name">Dirty Chai</div>
+                <div class="coffee-price">4.00</div>
+                <div class="coffee-price">4.60</div>
+                <div class="coffee-price">4.85</div>
+              </div>
+
+              <div class="coffee-row">
+                <div class="coffee-name">Chai Latte</div>
+                <div class="coffee-price">3.75</div>
+                <div class="coffee-price">4.00</div>
+                <div class="coffee-price">4.50</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-group">
+            <div class="menu-label">Iced Coffee · 16 oz</div>
+            <div class="menu-item"><div class="menu-name">Latte</div><div class="price">5.75</div></div>
+            <div class="menu-item"><div class="menu-name">Caramel Macchiato</div><div class="price">6.75</div></div>
+            <div class="menu-item"><div class="menu-name">Mocha</div><div class="price">6.75</div></div>
+            <div class="menu-item"><div class="menu-name">White Chocolate</div><div class="price">6.75</div></div>
+            <div class="menu-item"><div class="menu-name">Matcha Ceremonial</div><div class="price">8.00</div></div>
+          </div>
+
+          <div class="menu-group">
+            <div class="addon-block">
+              <h3 class="addon-title">Add Syrup +1</h3>
+              <p class="addon-text">Vanilla, Amaretto, Caramel, White Chocolate, Pistachio, Coconut, Mocha, Hazelnut.</p>
+            </div>
+          </div>
+
+          <div class="menu-group">
+            <div class="menu-label">Frozen · 16 oz</div>
+            <div class="menu-item"><div class="menu-name">Mocha</div><div class="price">6.75</div></div>
+            <div class="menu-item"><div class="menu-name">Java Chip</div><div class="price">7.00</div></div>
+            <div class="menu-item"><div class="menu-name">Caramel Cappuccino</div><div class="price">7.00</div></div>
+            <div class="menu-item"><div class="menu-name">Cookies &amp; Cream</div><div class="price">7.00</div></div>
+            <div class="menu-item"><div class="menu-name">Red Velvet</div><div class="price">7.00</div></div>
+          </div>
+
+          <div class="menu-group">
+            <div class="menu-label">Juices</div>
+            <div class="menu-item"><div class="menu-name">Orange, Apple, Passion Fruit, Acerola</div><div class="price">2.50</div></div>
+          </div>
+
+          <div class="menu-group">
+            <div class="menu-label">Lemonades</div>
+            <div class="menu-item"><div class="menu-name">Original</div><div class="price">5.00</div></div>
+            <div class="menu-item"><div class="menu-name">Strawberry</div><div class="price">6.00</div></div>
+            <div class="menu-item"><div class="menu-name">Blueberry</div><div class="price">6.00</div></div>
+          </div>
+
+          <div class="menu-group">
+            <div class="menu-label">Soft Drinks</div>
+            <div class="menu-item"><div class="menu-name">Coca Cola</div><div class="price">1.50</div></div>
+            <div class="menu-item"><div class="menu-name">Sprite</div><div class="price">1.50</div></div>
+            <div class="menu-item"><div class="menu-name">Water</div><div class="price">1.50</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-card">
+        <h2 class="section-title">Specialties</h2>
+
+        <div class="special-grid">
+          <div class="special-card">
+            <img src="/special-avocado.jpg" alt="Avocado Toast">
+            <div class="special-name">Avocado Toast</div>
+          </div>
+          <div class="special-card">
+            <img src="/special-hechos.jpg" alt="Acts">
+            <div class="special-name">Acts</div>
+          </div>
+          <div class="special-card">
+            <img src="/special-redvelvet-new.JPG" alt="Red Velvet Waffles">
+            <div class="special-name">Red Velvet Waffles</div>
+          </div>
+          <div class="special-card">
+            <img src="/special-apocalipsis-new.JPG" alt="Apocalypse">
+            <div class="special-name">Apocalypse</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="visit-box">
+        <h2 class="visit-title">Visit Us</h2>
+
+        <div class="visit-row">
+          <div class="visit-label">Address</div>
+          <div class="visit-value">Blessed Mornings, Ave. Valero, PR-194, Fajardo, 00738</div>
+        </div>
+
+        <div class="visit-row">
+          <div class="visit-label">Tuesday to Saturday</div>
+          <div class="visit-value">7:30am – 12:00pm</div>
+        </div>
+
+        <div class="visit-row">
+          <div class="visit-label">Sunday and Monday</div>
+          <div class="visit-value">CLOSED</div>
+        </div>
+
+        <div class="visit-row">
+          <div class="visit-label">Phone</div>
+          <div class="visit-value">(787) 318-3877</div>
+        </div>
+
+        <div class="visit-row">
+          <div class="visit-label">Instagram</div>
+          <div class="visit-value">@blessedmorningspr</div>
+        </div>
+
+        <a class="btn btn-gold" style="margin-top:18px" href="https://maps.google.com/?q=18.3401726,-65.6591148" target="_blank">Get Directions</a>
+
+        <div class="map-wrap">
+          <iframe
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=18.3401726,-65.6591148&output=embed">
+          </iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="footer">
+    Blessed Mornings · Fajardo, Puerto Rico
   </div>
-</section>
 
-<!-- ABOUT -->
-<section class="section">
-  <h2>About Us</h2>
-  <p style="text-align:center;">
-    At Blessed Mornings, every detail is designed to make your morning feel special.
-    A welcoming space, handcrafted coffee, and beautifully prepared dishes made to be enjoyed slowly.
-  </p>
-</section>
+  <a class="floating-review" href="https://g.page/r/CV9RD_KqfdNxECA/review" target="_blank" aria-label="Google Review">★</a>
 
-<!-- MENU -->
-<section id="menu" class="section">
-  <h2>Menu</h2>
-
-  <div class="card">
-    <h3>Sandwiches</h3>
-    <p><b>Genesis:</b> Croissant, American Cheese, Lettuce, Turkey Ham</p>
-    <p><b>Exodus:</b> Ciabatta, Swiss Cheese, Turkey, Salami, Lettuce</p>
-    <p><b>Psalms:</b> Mallorca Bread, Cheddar Cheese, Regular Ham, Raspberry Jam</p>
-    <p><b>Avocado Toast:</b> Rosemary Bread, Avocado, Cherry Tomatoes, Salami, Egg, Bacon, Balsamic Glaze, Manchego Cheese</p>
-  </div>
-
-  <div class="card">
-    <h3>Pancakes</h3>
-    <p>Regular · Nutella Filled · Red Velvet · Chocolate Chip</p>
-  </div>
-
-  <div class="card">
-    <h3>Waffles</h3>
-    <p>Regular · Oat · Red Velvet</p>
-  </div>
-
-  <div class="card">
-    <h3>Plates</h3>
-    <p><b>Romans:</b> Omelet or scrambled eggs with vegetables + protein + fruit or toast</p>
-    <p><b>Philippians:</b> Pancake tacos with eggs, bacon & cheddar</p>
-    <p><b>Acts:</b> French toast sandwich with ham, egg & cheese</p>
-    <p><b>Apocalypse:</b> French toast or pancakes + eggs, bacon, cheese & fruit</p>
-  </div>
-
-</section>
-
-<!-- DRINKS -->
-<section id="drinks" class="section">
-  <h2>Drinks</h2>
-
-  <div class="card">
-    <h3>Iced Coffee</h3>
-    <p>Mocha $6.75</p>
-    <p>Caramel Macchiato $6.75</p>
-    <p>White Chocolate $6.75</p>
-    <p>Latte $5.75</p>
-  </div>
-
-  <div class="card">
-    <h3>Add Syrup +1</h3>
-    <p>Vanilla, Amaretto, Caramel, White Chocolate, Pistachio, Coconut, Mocha, Hazelnut</p>
-  </div>
-
-  <div class="card">
-    <h3>Frozen</h3>
-    <p>Mocha $6.75</p>
-    <p>Java Chip $7.00</p>
-    <p>Caramel Cappuccino $7.00</p>
-    <p>Cookies & Cream $7.00</p>
-    <p>Red Velvet $7.00</p>
-  </div>
-
-</section>
-
-<!-- VISIT -->
-<section class="section">
-  <h2>Visit Us</h2>
-  <p style="text-align:center;">
-    Blessed Mornings, Fajardo, Puerto Rico<br>
-    Tue–Sat: 7:30am – 12:00pm<br>
-    Sun & Mon: CLOSED<br><br>
-
-    📞 (787) 318-3877<br>
-    📷 @blessedmorningspr
-  </p>
-</section>
-
-<footer>
-  Blessed Mornings · Fajardo, Puerto Rico
-</footer>
+  <script>
+  function resetLanguagePreference() {
+    localStorage.removeItem("bm_lang_choice");
+    location.reload();
+  }
+  </script>
 
 </body>
 </html>
