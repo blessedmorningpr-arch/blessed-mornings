@@ -5,7 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blessed Mornings | Brunch & Coffee</title>
   <meta name="description" content="Blessed Mornings en Fajardo, Puerto Rico. Brunch, café, menú y bebidas." />
+<script>
+(function () {
+  var savedLang = localStorage.getItem("bm_lang_choice");
+  if (savedLang) return;
 
+  var lang = (navigator.language || navigator.userLanguage || "").toLowerCase();
+  var isEnglish = lang.startsWith("en");
+
+  if (isEnglish) {
+    window.location.replace("/english.html");
+  }
+})();
+</script>
   <style>
     :root{
       --bg:#080808;
@@ -518,7 +530,7 @@
   </style>
 </head>
 <body> 
-<a href="/english.html" class="lang-btn">EN</a>
+<a href="/english.html" class="lang-btn" onclick="localStorage.setItem('bm_lang_choice','en')">EN</a>
 
   <header class="hero">
     <div class="hero-inner container">
