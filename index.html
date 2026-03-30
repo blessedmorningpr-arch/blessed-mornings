@@ -5,6 +5,49 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TEST 123</title>
   <style>
+    /* ===== FIX DE ESPACIOS (SIN CAMBIAR DISEÑO) ===== */
+
+/* reduce separación entre secciones */
+.section,
+section {
+  margin-top: 14px !important;
+  margin-bottom: 14px !important;
+}
+
+/* reduce espacio dentro de las cajas */
+.card,
+.menu-card,
+.visit-card,
+.specialties-card {
+  padding-top: 18px !important;
+  padding-bottom: 18px !important;
+}
+
+/* elimina espacios exagerados entre bloques */
+.special-grid,
+.cards,
+.stack {
+  gap: 12px !important;
+}
+
+/* corrige VISÍTANOS específicamente */
+#visitanos,
+.visit-section {
+  margin-top: 14px !important;
+  padding-top: 14px !important;
+}
+
+/* elimina alturas forzadas que alargan */
+* {
+  min-height: auto !important;
+}
+
+/* elimina espacios invisibles */
+.spacer,
+.space,
+.big-space {
+  display: none !important;
+}
     * {
       box-sizing: border-box;
       margin: 0;
