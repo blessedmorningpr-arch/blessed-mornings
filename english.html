@@ -4,26 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blessed Mornings | Brunch & Coffee</title>
-  <meta name="description" content="Blessed Mornings in Fajardo, Puerto Rico. Brunch, coffee, menu and drinks." />
-<meta name="keywords" content="brunch fajardo, coffee fajardo puerto rico, breakfast fajardo, brunch puerto rico">
+  <meta name="description" content="Blessed Mornings in Fajardo, Puerto Rico. Brunch, coffee, menu, and drinks." />
+  <meta name="keywords" content="brunch fajardo, breakfast fajardo, cafe fajardo, coffee fajardo puerto rico, breakfast puerto rico, brunch puerto rico">
 
-<meta property="og:title" content="Blessed Mornings | Brunch & Coffee in Fajardo">
-<meta property="og:description" content="Enjoy brunch, coffee, and breakfast in Fajardo, Puerto Rico. Blessed Mornings offers a unique morning experience.">
-<meta property="og:image" content="https://blessedmorningspr.com/hero.jpg">
-<meta property="og:url" content="https://blessedmorningspr.com/english.html">
-<meta property="og:type" content="website">
-  <script>
-  (function () {
-    var userLang = (navigator.language || navigator.userLanguage || "").toLowerCase();
-    var isSpanish = userLang.startsWith("es");
-    var onEnglishPage = window.location.pathname.startsWith("/en/");
-    var hasChosenLang = localStorage.getItem("bm_lang_choice");
+  <meta name="author" content="Blessed Mornings">
 
-    if (!hasChosenLang && isSpanish && onEnglishPage) {
-      window.location.replace("/");
-    }
-  })();
-  </script>
+  <meta property="og:title" content="Blessed Mornings | Brunch & Coffee in Fajardo">
+  <meta property="og:description" content="Enjoy brunch, coffee, and breakfast in Fajardo, Puerto Rico. Blessed Mornings offers a unique experience every morning.">
+  <meta property="og:image" content="https://blessedmorningspr.com/hero.jpg">
+  <meta property="og:url" content="https://blessedmorningspr.com/english.html">
+  <meta property="og:type" content="website">
+  <meta name="geo.region" content="PR">
+  <meta name="geo.placename" content="Fajardo">
+  <meta name="geo.position" content="18.3401726;-65.6591148">
+  <meta name="ICBM" content="18.3401726, -65.6591148">
 
   <style>
     :root{
@@ -41,6 +35,7 @@
 
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
+
     body{
       margin:0;
       font-family:Arial, Helvetica, sans-serif;
@@ -61,21 +56,38 @@
 
     .lang-btn{
       position:fixed;
-      top:20px;
-      right:20px;
+      top:16px;
+      right:16px;
       z-index:99999;
-      padding:12px 16px;
+      min-width:46px;
+      height:46px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:0 12px;
       border-radius:999px;
-      background:#c9985c;
+      background:rgba(20,20,20,.46);
       color:#fff;
-      font-weight:700;
       text-decoration:none;
-      box-shadow:0 4px 12px rgba(0,0,0,.4);
+      font-weight:800;
+      font-size:14px;
+      letter-spacing:.04em;
+      border:1px solid rgba(255,255,255,.14);
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+      box-shadow:0 10px 24px rgba(0,0,0,.24);
+      transition:transform .2s ease, background .2s ease, border-color .2s ease;
+    }
+
+    .lang-btn:hover{
+      transform:translateY(-1px) scale(1.03);
+      background:rgba(35,35,35,.58);
+      border-color:rgba(255,255,255,.22);
     }
 
     .hero{
       position:relative;
-      min-height:100svh;
+      min-height:82svh;
       display:flex;
       align-items:center;
       justify-content:center;
@@ -88,7 +100,7 @@
       inset:0;
       background:
         linear-gradient(to bottom, rgba(0,0,0,.40), rgba(0,0,0,.78)),
-        url('/hero.jpg') center/cover no-repeat;
+        url('hero.jpg') center/cover no-repeat;
       z-index:0;
       transform:scale(1.02);
     }
@@ -98,13 +110,13 @@
       z-index:2;
       width:min(100%, 820px);
       text-align:center;
-      padding:34px 18px 42px;
+      padding:28px 18px 30px;
       animation:heroFade 1.05s ease both;
     }
 
     .logo-wrap{
-      width:170px;
-      margin:0 auto 18px;
+      width:155px;
+      margin:0 auto 16px;
       animation:logoPop 1.1s ease both;
     }
 
@@ -118,8 +130,8 @@
 
     .eyebrow{
       display:inline-block;
-      margin:0 auto 18px;
-      padding:12px 18px;
+      margin:0 auto 16px;
+      padding:10px 16px;
       border:1px solid rgba(255,255,255,.18);
       border-radius:999px;
       font-size:11px;
@@ -133,8 +145,8 @@
     }
 
     h1{
-      margin:0 0 26px;
-      font-size:clamp(2.2rem, 7vw, 4.4rem);
+      margin:0 0 22px;
+      font-size:clamp(2.1rem, 6.5vw, 4.2rem);
       line-height:.98;
       font-weight:800;
       letter-spacing:-.03em;
@@ -145,7 +157,7 @@
 
     .actions{
       display:grid;
-      gap:14px;
+      gap:10px;
       width:min(100%, 760px);
       margin:0 auto;
       animation:fadeUp 1.2s ease both;
@@ -155,15 +167,15 @@
       display:flex;
       align-items:center;
       justify-content:center;
-      min-height:68px;
+      min-height:56px;
       border-radius:999px;
-      font-size:clamp(1.2rem, 2.7vw, 2rem);
+      font-size:clamp(1rem, 2.2vw, 1.5rem);
       font-weight:800;
       transition:transform .22s ease, box-shadow .22s ease, filter .22s ease;
       box-shadow:var(--shadow);
       border:1px solid transparent;
       text-align:center;
-      padding:14px 22px;
+      padding:12px 18px;
     }
 
     .btn:hover{
@@ -176,19 +188,21 @@
       background:linear-gradient(180deg, var(--gold-soft), var(--gold));
       color:#fff;
     }
+
     .btn-dark{
       background:rgba(10,10,10,.72);
       color:#fff;
       border-color:rgba(255,255,255,.08);
       backdrop-filter:blur(6px);
     }
+
     .btn-light{
       background:#f4efe8;
       color:#101010;
     }
 
     section{
-      padding:60px 0;
+      padding:26px 0;
       animation:sectionFade .8s ease both;
     }
 
@@ -210,8 +224,8 @@
     }
 
     .about{
-      font-size:clamp(1.18rem, 2.8vw, 1.95rem);
-      line-height:1.7;
+      font-size:clamp(1.1rem, 2.6vw, 1.75rem);
+      line-height:1.65;
       color:#efe7dc;
     }
 
@@ -222,7 +236,7 @@
       padding:16px;
     }
 
-    .menu-group + .menu-group{margin-top:26px}
+    .menu-group + .menu-group{margin-top:22px}
 
     .menu-label{
       color:var(--gold-soft);
@@ -244,7 +258,7 @@
     .menu-item:last-child{border-bottom:none}
 
     .menu-name{
-      font-size:clamp(1.25rem, 3vw, 1.95rem);
+      font-size:clamp(1.2rem, 2.8vw, 1.85rem);
       font-weight:800;
       color:#fff5ea;
       line-height:1.15;
@@ -252,13 +266,13 @@
     }
 
     .menu-desc{
-      font-size:clamp(1rem, 2.2vw, 1.18rem);
-      line-height:1.6;
+      font-size:clamp(1rem, 2.2vw, 1.12rem);
+      line-height:1.55;
       color:#e4d8ca;
     }
 
     .price{
-      font-size:clamp(1.15rem, 2.7vw, 1.9rem);
+      font-size:clamp(1.1rem, 2.5vw, 1.75rem);
       font-weight:800;
       color:#fff0df;
       white-space:nowrap;
@@ -266,16 +280,21 @@
       padding-left:8px;
     }
 
+    #bebidas{
+      padding-top:18px;
+      padding-bottom:16px;
+    }
+
     .coffee-table{
-      margin-top:8px;
+      margin-top:4px;
     }
 
     .coffee-head,
     .coffee-row{
       display:grid;
-      grid-template-columns:2fr 1fr 1fr 1fr;
+      grid-template-columns:2fr .9fr .9fr .9fr;
       align-items:center;
-      gap:12px;
+      gap:10px;
     }
 
     .coffee-head{
@@ -285,7 +304,7 @@
       letter-spacing:.18em;
       text-transform:uppercase;
       border-bottom:1px solid rgba(255,255,255,.08);
-      padding:10px 0 16px;
+      padding:8px 0 14px;
       margin-bottom:4px;
     }
 
@@ -314,6 +333,14 @@
       white-space:nowrap;
     }
 
+    .oz-stack{
+      display:inline-flex;
+      flex-direction:column;
+      align-items:center;
+      line-height:.95;
+      gap:4px;
+    }
+
     .addon-block{
       padding:16px 0 6px;
       border-top:1px solid rgba(255,255,255,.08);
@@ -329,23 +356,28 @@
     }
 
     .addon-text{
-      font-size:clamp(1.2rem, 2.8vw, 1.9rem);
-      line-height:1.65;
+      font-size:clamp(1.14rem, 2.6vw, 1.65rem);
+      line-height:1.6;
       color:#f1e6d8;
       margin:0;
+    }
+
+    .special-section{
+      padding-top:10px;
+      padding-bottom:18px;
     }
 
     .special-grid{
       display:grid;
       grid-template-columns:repeat(2, 1fr);
-      gap:14px;
+      gap:12px;
     }
 
     .special-card{
       position:relative;
       overflow:hidden;
       border-radius:24px;
-      min-height:265px;
+      min-height:305px;
       border:1px solid rgba(255,255,255,.06);
       background:#151515;
       box-shadow:0 10px 28px rgba(0,0,0,.28);
@@ -361,50 +393,53 @@
       width:100%;
       height:100%;
       object-fit:cover;
-      transition:transform .6s ease;
+      filter:saturate(.82) brightness(.90) contrast(.96);
+      transition:transform .6s ease, filter .4s ease;
     }
 
     .special-card:hover img{
       transform:scale(1.04);
+      filter:saturate(.9) brightness(.93) contrast(.98);
     }
 
     .special-card::after{
       content:"";
       position:absolute;
       inset:0;
-      background:linear-gradient(to top, rgba(0,0,0,.38), rgba(0,0,0,.02) 56%);
+      background:linear-gradient(to top, rgba(0,0,0,.34), rgba(0,0,0,.05) 56%);
     }
 
     .special-name{
       position:absolute;
-      left:18px;
-      right:18px;
-      bottom:18px;
+      left:16px;
+      right:16px;
+      bottom:16px;
       z-index:2;
       text-align:center;
-      font-size:clamp(1.05rem, 2.3vw, 1.45rem);
+      font-size:clamp(1rem, 2.2vw, 1.35rem);
       font-weight:700;
       color:#fff;
-      padding:12px 16px;
+      padding:12px 14px;
       border-radius:999px;
-      background:rgba(255,255,255,.10);
-      backdrop-filter:blur(10px);
-      -webkit-backdrop-filter:blur(10px);
-      border:1px solid rgba(255,255,255,.14);
+      background:rgba(70,70,70,.42);
+      backdrop-filter:blur(12px);
+      -webkit-backdrop-filter:blur(12px);
+      border:1px solid rgba(255,255,255,.10);
       box-shadow:0 6px 18px rgba(0,0,0,.20);
+      line-height:1.15;
     }
 
     .visit-box{
       background:#f3ede3;
       color:#292421;
       border-radius:28px;
-      padding:24px;
+      padding:20px 22px;
       box-shadow:var(--shadow);
       border:1px solid rgba(0,0,0,.06);
     }
 
     .visit-title{
-      margin:0 0 18px;
+      margin:0 0 16px;
       color:#9f6834;
       font-size:clamp(2rem, 5vw, 3.2rem);
       font-weight:800;
@@ -413,35 +448,37 @@
     }
 
     .visit-row{
-      padding:18px 0;
+      padding:14px 0;
       border-bottom:1px solid rgba(0,0,0,.08);
     }
 
     .visit-row:last-of-type{border-bottom:none}
+
     .visit-label{
-      font-size:clamp(1.02rem, 2vw, 1.25rem);
-      margin-bottom:6px;
+      font-size:clamp(1rem, 2vw, 1.18rem);
+      margin-bottom:5px;
       color:#3d3732;
     }
+
     .visit-value{
-      font-size:clamp(1.25rem, 2.8vw, 2rem);
+      font-size:clamp(1.12rem, 2.5vw, 1.7rem);
       font-weight:800;
-      line-height:1.4;
+      line-height:1.35;
       color:#241f1a;
     }
 
     .map-wrap{
-      margin-top:18px;
+      margin-top:16px;
       border-radius:24px;
       overflow:hidden;
       border:1px solid rgba(0,0,0,.08);
-      min-height:280px;
+      min-height:230px;
       background:#ddd;
     }
 
     .map-wrap iframe{
       width:100%;
-      height:280px;
+      height:230px;
       border:0;
       display:block;
     }
@@ -449,7 +486,7 @@
     .footer{
       text-align:center;
       color:#d8c9b8;
-      padding:24px 18px 40px;
+      padding:18px 18px 34px;
       font-size:.98rem;
     }
 
@@ -521,13 +558,12 @@
   </style>
 </head>
 <body>
-
- <a href="/" class="lang-btn" onclick="localStorage.setItem('bm_lang_choice','es')">ES</a>
+  <a href="/" class="lang-btn" onclick="localStorage.setItem('bm_lang_choice','es')">ES</a>
 
   <header class="hero">
     <div class="hero-inner container">
       <div class="logo-wrap">
-        <img src="/logo.PNG" alt="Blessed Mornings logo" class="logo-img">
+        <img src="logo.PNG" alt="Blessed Mornings logo" class="logo-img">
       </div>
 
       <div class="eyebrow">BRUNCH &amp; COFFEE · FAJARDO, PUERTO RICO</div>
@@ -536,8 +572,8 @@
 
       <div class="actions">
         <a class="btn btn-gold" href="#menu">View Menu</a>
-        <a class="btn btn-dark" href="#drinks">View Drinks ☕</a>
-        <a class="btn btn-light" href="tel:17873183877">Call Now</a>
+        <a class="btn btn-dark" href="#bebidas">View Drinks ☕</a>
+        <a class="btn btn-light" href="tel:7873183877">Call Now</a>
         <a class="btn btn-dark" href="https://www.instagram.com/blessedmorningspr/" target="_blank">Instagram</a>
       </div>
     </div>
@@ -548,7 +584,7 @@
       <div class="section-card">
         <h2 class="section-title">About Us</h2>
         <div class="about">
-          At Blessed Mornings, every detail is designed to make your morning feel special. A welcoming space, handcrafted coffee, and beautifully prepared dishes made to be enjoyed slowly.
+          At Blessed Mornings, every detail is designed to make your morning feel special. A cozy space, handcrafted coffee, and dishes prepared with flavor, care, and a presentation made to be enjoyed without rush.
         </div>
       </div>
     </section>
@@ -580,7 +616,7 @@
             <div class="menu-item">
               <div>
                 <div class="menu-name">Psalms</div>
-                <div class="menu-desc">Mallorca Bread, Cheddar Cheese, Regular Ham, Raspberry Jam</div>
+                <div class="menu-desc">Mallorca Bread, Cheddar Cheese, Ham, Raspberry Jam</div>
               </div>
               <div class="price">9.75</div>
             </div>
@@ -615,13 +651,13 @@
             <div class="menu-label">Add Protein</div>
 
             <div class="menu-item"><div class="menu-name">Turkey Ham</div><div class="price">3.50</div></div>
-            <div class="menu-item"><div class="menu-name">Regular Ham</div><div class="price">2.00</div></div>
+            <div class="menu-item"><div class="menu-name">Ham</div><div class="price">2.00</div></div>
             <div class="menu-item"><div class="menu-name">Italian Sausage</div><div class="price">2.85</div></div>
             <div class="menu-item"><div class="menu-name">Bacon</div><div class="price">3.85</div></div>
           </div>
 
           <div class="menu-group">
-            <div class="menu-label">Add Fruits</div>
+            <div class="menu-label">Add Fruit</div>
             <div class="menu-item">
               <div class="menu-name">Strawberry, Kiwi, Banana, Blueberries</div>
               <div class="price">3.95</div>
@@ -630,8 +666,8 @@
 
           <div class="menu-group">
             <div class="addon-block">
-              <h3 class="addon-title">Toppings +1 each</h3>
-              <p class="addon-text">Nutella, Almonds, Whipped Cream, Walnuts, Cream Cheese, Chocolate, Caramel.</p>
+              <h3 class="addon-title">Toppings +1 Each</h3>
+              <p class="addon-text">Nutella, Almond, Whipped Cream, Walnuts, Cream Cheese, Chocolate, Caramel.</p>
             </div>
           </div>
 
@@ -641,7 +677,7 @@
             <div class="menu-item">
               <div>
                 <div class="menu-name">Romans</div>
-                <div class="menu-desc">Omelet or scrambled eggs with vegetables. Choose one: bacon / turkey ham / Italian sausage, cheese of your choice, and choose between fruit or buttered toast.</div>
+                <div class="menu-desc">Omelette or Scrambled Eggs with Vegetables. Choose one: Bacon / Turkey Ham / Italian Sausage. Cheese of your choice. Choose between Fruit or Buttered Toast.</div>
               </div>
               <div class="price">13.00</div>
             </div>
@@ -649,7 +685,7 @@
             <div class="menu-item">
               <div>
                 <div class="menu-name">Philippians</div>
-                <div class="menu-desc">Pancake Tacos (scrambled eggs, bacon, cheddar cheese) served with fruit.</div>
+                <div class="menu-desc">Taco Pancakes (scrambled eggs, bacon, cheddar cheese) served with fruit.</div>
               </div>
               <div class="price">14.00</div>
             </div>
@@ -657,15 +693,15 @@
             <div class="menu-item">
               <div>
                 <div class="menu-name">Acts</div>
-                <div class="menu-desc">French Toast Sandwich (regular ham, egg, cheddar cheese)</div>
+                <div class="menu-desc">French Toast Sandwich (ham, egg, cheddar cheese)</div>
               </div>
               <div class="price">14.00</div>
             </div>
 
             <div class="menu-item">
               <div>
-                <div class="menu-name">Apocalypse</div>
-                <div class="menu-desc">French Toast or Pancakes with Nutella and fruit, scrambled eggs with vegetables, cheese of your choice, and bacon.</div>
+                <div class="menu-name">Revelation</div>
+                <div class="menu-desc">French Toast or Pancakes with Nutella and Fruit, Scrambled Eggs with Vegetables, Cheese of Your Choice, and Bacon.</div>
               </div>
               <div class="price">16.00</div>
             </div>
@@ -674,7 +710,32 @@
       </div>
     </section>
 
-    <section id="drinks">
+    <section class="special-section">
+      <div class="section-card">
+        <h2 class="section-title">Specialties</h2>
+
+        <div class="special-grid">
+          <div class="special-card avocado-card">
+            <img src="special-avocado.jpg" alt="Avocado Toast">
+            <div class="special-name">Avocado Toast</div>
+          </div>
+          <div class="special-card">
+            <img src="special-hechos.jpg" alt="Acts">
+            <div class="special-name">Acts</div>
+          </div>
+          <div class="special-card">
+            <img src="special-redvelvet-new.JPG" alt="Red Velvet Waffles">
+            <div class="special-name">Red Velvet Waffles</div>
+          </div>
+          <div class="special-card">
+            <img src="special-apocalipsis-new.JPG" alt="Revelation">
+            <div class="special-name">Revelation</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="bebidas">
       <div class="section-card">
         <h2 class="section-title">Drinks</h2>
 
@@ -683,9 +744,9 @@
             <div class="coffee-table">
               <div class="coffee-head">
                 <div>COFFEE</div>
-                <div style="text-align:center;">8 OZ</div>
-                <div style="text-align:center;">10 OZ</div>
-                <div style="text-align:center;">12 OZ</div>
+                <div style="text-align:center;"><span class="oz-stack"><span>8</span><span>OZ</span></span></div>
+                <div style="text-align:center;"><span class="oz-stack"><span>10</span><span>OZ</span></span></div>
+                <div style="text-align:center;"><span class="oz-stack"><span>12</span><span>OZ</span></span></div>
               </div>
 
               <div class="coffee-row">
@@ -759,7 +820,7 @@
             <div class="menu-item"><div class="menu-name">Caramel Macchiato</div><div class="price">6.75</div></div>
             <div class="menu-item"><div class="menu-name">Mocha</div><div class="price">6.75</div></div>
             <div class="menu-item"><div class="menu-name">White Chocolate</div><div class="price">6.75</div></div>
-            <div class="menu-item"><div class="menu-name">Matcha Ceremonial</div><div class="price">8.00</div></div>
+            <div class="menu-item"><div class="menu-name">Ceremonial Matcha</div><div class="price">8.00</div></div>
           </div>
 
           <div class="menu-group">
@@ -780,46 +841,22 @@
 
           <div class="menu-group">
             <div class="menu-label">Juices</div>
-            <div class="menu-item"><div class="menu-name">Orange, Apple, Passion Fruit, Acerola</div><div class="price">2.50</div></div>
+            <div class="menu-item"><div class="menu-name">Apple, Passion Fruit, Acerola</div><div class="price">3.50</div></div>
+            <div class="menu-item"><div class="menu-name">Fresh Orange Juice</div><div class="price">6.00</div></div>
           </div>
 
           <div class="menu-group">
             <div class="menu-label">Lemonades</div>
-            <div class="menu-item"><div class="menu-name">Original</div><div class="price">5.00</div></div>
+            <div class="menu-item"><div class="menu-name">Natural</div><div class="price">5.00</div></div>
             <div class="menu-item"><div class="menu-name">Strawberry</div><div class="price">6.00</div></div>
             <div class="menu-item"><div class="menu-name">Blueberry</div><div class="price">6.00</div></div>
           </div>
 
           <div class="menu-group">
             <div class="menu-label">Soft Drinks</div>
-            <div class="menu-item"><div class="menu-name">Coca Cola</div><div class="price">1.50</div></div>
-            <div class="menu-item"><div class="menu-name">Sprite</div><div class="price">1.50</div></div>
-            <div class="menu-item"><div class="menu-name">Water</div><div class="price">1.50</div></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="section-card">
-        <h2 class="section-title">Specialties</h2>
-
-        <div class="special-grid">
-          <div class="special-card">
-            <img src="/special-avocado.jpg" alt="Avocado Toast">
-            <div class="special-name">Avocado Toast</div>
-          </div>
-          <div class="special-card">
-            <img src="/special-hechos.jpg" alt="Acts">
-            <div class="special-name">Acts</div>
-          </div>
-          <div class="special-card">
-            <img src="/special-redvelvet-new.JPG" alt="Red Velvet Waffles">
-            <div class="special-name">Red Velvet Waffles</div>
-          </div>
-          <div class="special-card">
-            <img src="/special-apocalipsis-new.JPG" alt="Apocalypse">
-            <div class="special-name">Apocalypse</div>
+            <div class="menu-item"><div class="menu-name">Coca-Cola</div><div class="price">1.80</div></div>
+            <div class="menu-item"><div class="menu-name">Sprite</div><div class="price">1.80</div></div>
+            <div class="menu-item"><div class="menu-name">Water</div><div class="price">1.60</div></div>
           </div>
         </div>
       </div>
@@ -830,7 +867,7 @@
         <h2 class="visit-title">Visit Us</h2>
 
         <div class="visit-row">
-          <div class="visit-label">Address</div>
+          <div class="visit-label">Nearby Address</div>
           <div class="visit-value">Blessed Mornings, Ave. Valero, PR-194, Fajardo, 00738</div>
         </div>
 
@@ -854,7 +891,7 @@
           <div class="visit-value">@blessedmorningspr</div>
         </div>
 
-        <a class="btn btn-gold" style="margin-top:18px" href="https://maps.google.com/?q=18.3401726,-65.6591148" target="_blank">Get Directions</a>
+        <a class="btn btn-gold" style="margin-top:16px" href="https://maps.google.com/?q=18.3401726,-65.6591148" target="_blank">Get Directions</a>
 
         <div class="map-wrap">
           <iframe
@@ -873,13 +910,5 @@
   </div>
 
   <a class="floating-review" href="https://g.page/r/CV9RD_KqfdNxECA/review" target="_blank" aria-label="Google Review">★</a>
-
-  <script>
-  function resetLanguagePreference() {
-    localStorage.removeItem("bm_lang_choice");
-    location.reload();
-  }
-  </script>
-
 </body>
 </html>
